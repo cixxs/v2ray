@@ -884,7 +884,7 @@ backup_config() {
 
 get_ip() {
 	#ip=$(curl -s https://ipinfo.io/ip)
-	ip=127.0.0.1
+	ip=0.0.0.0
 	[[ -z $ip ]] && ip=$(curl -s https://api.ip.sb/ip)
 	[[ -z $ip ]] && ip=$(curl -s https://api.ipify.org)
 	[[ -z $ip ]] && ip=$(curl -s https://ip.seeip.org)
