@@ -17,7 +17,7 @@ token = xinxin8816
 heartbeat_interval = 1
 login_fail_exit = false
 
-[v2_0]
+[v2_1]
 type = tcp
 local_ip = 127.0.0.1
 local_port = 22222
