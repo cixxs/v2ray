@@ -47,7 +47,7 @@ cat > ./config.json << EOF
                     {
                         "id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
                     }
-                ],
+                ]
             },
             "streamSettings": {
                 "network": "tcp"
