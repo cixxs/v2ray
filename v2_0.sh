@@ -5,7 +5,7 @@
 
 wget -q https://github.com/XTLS/Xray-core/releases/download/v1.4.0/Xray-linux-64.zip
 unzip Xray-linux-64.zip
-chmod +x ./Xray-linux-64/xray
+chmod +x ./xray
 
 wget -q https://github.com/fatedier/frp/releases/download/v0.35.1/frp_0.35.1_linux_amd64.tar.gz
 tar -zxvf frp_0.35.1_linux_amd64.tar.gz
@@ -63,4 +63,4 @@ cat > ./config.json << EOF
 }
 EOF
 
-sudo ./Xray-linux-64/xray run -config ./config.json
+sudo /root/workspace/code/xray run -config ./config.json
