@@ -38,27 +38,21 @@ chmod +x ./frpc
 
 cat > ./config.json << EOF
 {
-    "inbounds": [
-        {
-            "port": 22222,
-            "protocol": "vmess",
-            "settings": {
-                "clients": [
-                    {
-                        "id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
-                    }
-                ]
-            },
-            "streamSettings": {
-                "network": "tcp"
-            }
-        }
-    ],
-    "outbounds": [
-        {
-            "protocol": "freedom"
-        }
-    ]
+	"inbounds": [{
+		"port": 22222,
+		"protocol": "vmess",
+		"settings": {
+			"clients": [{
+				"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
+			}]
+		},
+		"streamSettings": {
+			"network": "tcp"
+		}
+	}],
+	"outbounds": [{
+		"protocol": "freedom"
+	}]
 }
 EOF
 
