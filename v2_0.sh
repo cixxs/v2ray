@@ -41,14 +41,13 @@ cat > ./config.json << EOF
     "inbounds": [
         {
             "port": 22222,
-            "protocol": "vless",
+            "protocol": "vmess",
             "settings": {
                 "clients": [
                     {
                         "id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
                     }
                 ],
-                "decryption": "none"
             },
             "streamSettings": {
                 "network": "tcp"
