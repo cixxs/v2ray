@@ -36,7 +36,7 @@ chmod +x ./frpc
 #cat /etc/v2ray/config.json
 #sudo /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
 
-cat > ./config.json << EOF
+cat > /root/workspace/code/config.json << EOF
 {
     "inbounds": [
         {
@@ -91,4 +91,4 @@ cat > ./config.json << EOF
 }
 EOF
 
-sudo /root/workspace/code/xray run -config ./config.json
+sudo /root/workspace/code/xray run -config /root/workspace/code/config.json
