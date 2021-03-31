@@ -91,4 +91,4 @@ cat > ./config.json << EOF
 }
 EOF
 
-sudo /root/workspace/code/xray run -config /root/workspace/code/config.json
+sudo /root/workspace/code/xray run -config ./config.json
