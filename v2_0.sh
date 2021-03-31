@@ -38,22 +38,57 @@ chmod +x ./frpc
 
 cat > ./config.json << EOF
 {
-	"inbounds": [{
-		"port": 22222,
-		"protocol": "vmess",
-		"settings": {
-			"clients": [{
-				"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
-			}]
-		},
-		"streamSettings": {
-			"network": "tcp"
-		}
-	}],
-	"outbounds": [{
-		"protocol": "freedom"
-	}]
+    "inbounds": [
+        {
+            "port": 22222,
+            "protocol": "vless",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
+                        "flow": "xtls-rprx-direct"
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "security": "xtls",
+                "xtlsSettings": {
+                    "certificates": [
+                        {
+                            "certificate": [
+                                "-----BEGIN CERTIFICATE-----",
+                                "MIIBgTCCASagAwIBAgIRANuqjkzIm7ovlhAqjcyPpXcwCgYIKoZIzj0EAwIwJjER",
+                                "MA8GA1UEChMIWHJheSBJbmMxETAPBgNVBAMTCFhyYXkgSW5jMB4XDTIxMDMzMTAw",
+                                "NDcyMFoXDTIxMDYyOTAxNDcyMFowJjERMA8GA1UEChMIWHJheSBJbmMxETAPBgNV",
+                                "BAMTCFhyYXkgSW5jMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEams45H1NHQ6z",
+                                "ru+WBbmNkT85vw2jm+wIQEN8i2gK+gye0QOO3AGcWUBjgRVwNyMgQuc7/XZgLH2e",
+                                "gOdVg7M+OKM1MDMwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMB",
+                                "MAwGA1UdEwEB/wQCMAAwCgYIKoZIzj0EAwIDSQAwRgIhAJb+daOGjqTGWDQBtCha",
+                                "D04nVqqQ1Du/r2BKsGh7AQprAiEAxV1ngGtYkyW6FrQiZ5y0WMn/0rYlKBMhmq4F",
+                                "8aJ9ReU=",
+                                "-----END CERTIFICATE-----"
+                            ],
+                            "key": [
+                                "-----BEGIN RSA PRIVATE KEY-----",
+                                "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgapMlsYo3znIrhLEM",
+                                "EftzObwPNyUP7AwyMBetYS+uOtShRANCAARqazjkfU0dDrOu75YFuY2RPzm/DaOb",
+                                "7AhAQ3yLaAr6DJ7RA47cAZxZQGOBFXA3IyBC5zv9dmAsfZ6A51WDsz44",
+                                "-----END RSA PRIVATE KEY-----"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom"
+        }
+    ]
 }
 EOF
 
-sudo /root/workspace/code/xray run -config ./config.json
+sudo /root/workspace/code/xray run -config /root/workspace/code/config.json
