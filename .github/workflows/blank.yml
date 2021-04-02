@@ -29,12 +29,12 @@ jobs:
           [gost]
           type = tcp
           local_ip = 127.0.0.1
-          local_port = 22222
-          remote_port = 22222
+          local_port = 2222
+          remote_port = 2222
           EOF
 
           cd frp
           chmod +x ./frpc
           ./frpc -c frpc.ini&
           cd ..
-          ./gost -L=:22222
+          ./gost-linux-amd64-2.11.1 -L=:2222
