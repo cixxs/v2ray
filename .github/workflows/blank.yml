@@ -4,36 +4,38 @@ on:
 jobs:
   AutoSyncProcess:
     runs-on: ubuntu-latest
-          steps:
-          - name: Start
-            run: |
-                wget -q https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz
-                gzip -d gost-linux-amd64-2.11.1.gz
-                cp -r gost-linux-amd64-2.11.1 gost
-                ls
+    steps:
+    - name: Start
+      run: |
+          wget -q https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz
+          gzip -d gost-linux-amd64-2.11.1.gz
+          ls
+          chmod +x ./gost-linux-amd64
 
-                wget -q https://github.com/fatedier/frp/releases/download/v0.35.1/frp_0.35.1_linux_amd64.tar.gz
-                tar -zxvf frp_0.35.1_linux_amd64.tar.gz
-                cp -r frp_0.35.1_linux_amd64 frp
+          wget -q https://github.com/fatedier/frp/releases/download/v0.35.1/frp_0.35.1_linux_amd64.tar.gz
+          tar -zxvf frp_0.35.1_linux_amd64.tar.gz
+          cp -r frp_0.35.1_linux_amd64 frp
 
-                cat > ./frp/frpc.ini << EOF
-                [common]
-                server_addr = 209.141.46.89
-                server_port = 7000
-                tcp_mux     = false
-                protocol = websocket
-                token = xinxin8816
-                #pool_count = 10
-                heartbeat_interval = 1
-                login_fail_exit = false
+          cat > ./frp/frpc.ini << EOF
+          [common]
+          server_addr = 209.141.46.89
+          server_port = 7000
+          tcp_mux     = false
+          protocol = websocket
+          token = xinxin8816
+          #pool_count = 10
+          heartbeat_interval = 1
+          login_fail_exit = false
 
-                [v2_1]
-                type = tcp
-                local_ip = 127.0.0.1
-                local_port = 22222
-                remote_port = 22222
-                EOF
+          [gost]
+          type = tcp
+          local_ip = 127.0.0.1
+          local_port = 22222
+          remote_port = 22222
+          EOF
 
-                cd frp
-                chmod +x ./frpc
-                ./frpc -c frpc.ini&
+          cd frp
+          chmod +x ./frpc
+          ./frpc -c frpc.ini&
+          cd ..
+          ./gost -L=:22222
