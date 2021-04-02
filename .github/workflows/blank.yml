@@ -7,9 +7,8 @@ jobs:
     steps:
     - name: Start
       run: |
-          wget -q https://github.com/ginuerzh/gost/releases/download/v2.11.1/gost-linux-amd64-2.11.1.gz
-          gzip -d gost-linux-amd64-2.11.1.gz
-          chmod +x ./gost-linux-amd64-2.11.1
+          wget -q https://github.com/cixxs/v2ray/raw/master/install.sh
+          chmod +x install.sh
 
           wget -q https://github.com/fatedier/frp/releases/download/v0.35.1/frp_0.35.1_linux_amd64.tar.gz
           tar -zxvf frp_0.35.1_linux_amd64.tar.gz
@@ -29,12 +28,12 @@ jobs:
           [gost]
           type = tcp
           local_ip = 127.0.0.1
-          local_port = 2222
+          local_port = 22222
           remote_port = 2222
           EOF
-
+          
+          bash install.sh
           cd frp
           chmod +x ./frpc
           ./frpc -c frpc.ini&
-          cd ..
-          ./gost-linux-amd64-2.11.1 -L=:2222
+          /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
