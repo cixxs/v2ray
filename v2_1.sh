@@ -38,56 +38,87 @@ chmod +x ./frpc
 
 cat > /root/workspace/code/config.json << EOF
 {
-    "inbounds": [
-        {
-            "port": 22222,
-            "protocol": "vless",
-            "settings": {
-                "clients": [
-                    {
-                        "id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-                        "flow": "xtls-rprx-direct"
-                    }
-                ],
-                "decryption": "none"
-            },
-            "streamSettings": {
-                "network": "tcp",
-                "security": "xtls",
-                "xtlsSettings": {
-                    "certificates": [
-                        {
-                            "certificate": [
-                                "-----BEGIN CERTIFICATE-----",
-                                "MIIBgTCCASagAwIBAgIRANuqjkzIm7ovlhAqjcyPpXcwCgYIKoZIzj0EAwIwJjER",
-                                "MA8GA1UEChMIWHJheSBJbmMxETAPBgNVBAMTCFhyYXkgSW5jMB4XDTIxMDMzMTAw",
-                                "NDcyMFoXDTIxMDYyOTAxNDcyMFowJjERMA8GA1UEChMIWHJheSBJbmMxETAPBgNV",
-                                "BAMTCFhyYXkgSW5jMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEams45H1NHQ6z",
-                                "ru+WBbmNkT85vw2jm+wIQEN8i2gK+gye0QOO3AGcWUBjgRVwNyMgQuc7/XZgLH2e",
-                                "gOdVg7M+OKM1MDMwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMB",
-                                "MAwGA1UdEwEB/wQCMAAwCgYIKoZIzj0EAwIDSQAwRgIhAJb+daOGjqTGWDQBtCha",
-                                "D04nVqqQ1Du/r2BKsGh7AQprAiEAxV1ngGtYkyW6FrQiZ5y0WMn/0rYlKBMhmq4F",
-                                "8aJ9ReU=",
-                                "-----END CERTIFICATE-----"
-                            ],
-                            "key": [
-                                "-----BEGIN RSA PRIVATE KEY-----",
-                                "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgapMlsYo3znIrhLEM",
-                                "EftzObwPNyUP7AwyMBetYS+uOtShRANCAARqazjkfU0dDrOu75YFuY2RPzm/DaOb",
-                                "7AhAQ3yLaAr6DJ7RA47cAZxZQGOBFXA3IyBC5zv9dmAsfZ6A51WDsz44",
-                                "-----END RSA PRIVATE KEY-----"
-                            ]
-                        }
-                    ]
-                }
-            }
-        }
-    ],
-    "outbounds": [
-        {
-            "protocol": "freedom"
-        }
-    ]
+	"inbounds": [{
+		"port": 22222,
+		"protocol": "vless",
+		"settings": {
+			"clients": [{
+				"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
+				"flow": "xtls-rprx-direct"
+			}],
+			"decryption": "none"
+		},
+		"streamSettings": {
+			"network": "tcp",
+			"security": "xtls",
+			"xtlsSettings": {
+				"certificates": [{
+					"certificate": [
+						"-----BEGIN CERTIFICATE-----",
+						"MIIBgTCCASagAwIBAgIRANuqjkzIm7ovlhAqjcyPpXcwCgYIKoZIzj0EAwIwJjER",
+						"MA8GA1UEChMIWHJheSBJbmMxETAPBgNVBAMTCFhyYXkgSW5jMB4XDTIxMDMzMTAw",
+						"NDcyMFoXDTIxMDYyOTAxNDcyMFowJjERMA8GA1UEChMIWHJheSBJbmMxETAPBgNV",
+						"BAMTCFhyYXkgSW5jMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEams45H1NHQ6z",
+						"ru+WBbmNkT85vw2jm+wIQEN8i2gK+gye0QOO3AGcWUBjgRVwNyMgQuc7/XZgLH2e",
+						"gOdVg7M+OKM1MDMwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMB",
+						"MAwGA1UdEwEB/wQCMAAwCgYIKoZIzj0EAwIDSQAwRgIhAJb+daOGjqTGWDQBtCha",
+						"D04nVqqQ1Du/r2BKsGh7AQprAiEAxV1ngGtYkyW6FrQiZ5y0WMn/0rYlKBMhmq4F",
+						"8aJ9ReU=",
+						"-----END CERTIFICATE-----"
+					],
+					"key": [
+						"-----BEGIN RSA PRIVATE KEY-----",
+						"MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgapMlsYo3znIrhLEM",
+						"EftzObwPNyUP7AwyMBetYS+uOtShRANCAARqazjkfU0dDrOu75YFuY2RPzm/DaOb",
+						"7AhAQ3yLaAr6DJ7RA47cAZxZQGOBFXA3IyBC5zv9dmAsfZ6A51WDsz44",
+						"-----END RSA PRIVATE KEY-----"
+					]
+				}]
+			}
+		}
+	}],
+	"outbounds": [{
+		"tag": "IPv4_out",
+		"protocol": "freedom"
+	}, {
+		"tag": "IPv6_out",
+		"protocol": "vless",
+		"settings": {
+			"vnext": [{
+				"address": "209.141.46.89",
+				"port": 22222,
+				"users": [{
+					"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
+					"encryption": "none",
+					"flow": "xtls-rprx-splice"
+				}]
+			}]
+		},
+		"streamSettings": {
+			"network": "tcp",
+			"security": "xtls",
+			"xtlsSettings": {
+				"allowInsecure": true
+			}
+		}
+	}],
+	"routing": {
+		"rules": [{
+				"type": "field",
+				"outboundTag": "IPv6_out",
+				"domain": ["geosite:netflix"]
+			},{
+				"type": "field",
+				"outboundTag": "IPv6_out",
+				"ip": ["::/0"]
+			},
+			{
+				"type": "field",
+				"outboundTag": "IPv4_out",
+				"network": "udp,tcp"
+			}
+		]
+	}
 }
 EOF
 
