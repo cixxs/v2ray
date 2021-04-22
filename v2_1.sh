@@ -30,8 +30,8 @@ remote_port = 22222
 
 [Sorocky]
 type = tcp
-local_ip = 127.0.0.1
-local_port = 30000
+local_ip = 209.141.46.89
+local_port = 22222
 remote_port = 30000
 EOF
 
@@ -44,16 +44,7 @@ chmod +x ./frpc
 
 cat > /root/workspace/code/config.json << EOF
 {
-	"inbounds": [
-	{
-	    "port": 30000,
-		"protocol": "Dokodemo-door",
-		"settings": {
-			"address": "209.141.46.89",
-            "port": 22222,
-            "network": "tcp,udp"
-		}
-	},{
+	"inbounds": [{
 		"port": 22222,
 		"protocol": "vless",
 		"settings": {
