@@ -32,7 +32,7 @@ remote_port = 22221
 type = tcp
 local_ip = 127.0.0.1
 local_port = 22221
-remote_port = 22231
+remote_port = 22230
 
 [Sorocky Trojan]
 type = tcp
