@@ -34,7 +34,13 @@ local_ip = 127.0.0.1
 local_port = 22221
 remote_port = 22231
 
-[Sorocky]
+[Sorocky Trojan]
+type = tcp
+local_ip = 209.141.46.89
+local_port = 22221
+remote_port = 30001
+
+[Sorocky VLESS]
 type = tcp
 local_ip = 209.141.46.89
 local_port = 22222
