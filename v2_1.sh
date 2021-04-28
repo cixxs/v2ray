@@ -66,6 +66,10 @@ cat > /root/workspace/code/config.json << EOF
 			}],
 			"decryption": "none"
 		},
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      },
 		"streamSettings": {
 			"network": "tcp",
 			"security": "xtls",
@@ -103,6 +107,10 @@ cat > /root/workspace/code/config.json << EOF
 				"flow": "xtls-rprx-direct"
 			}]
 		},
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      },
 		"streamSettings": {
 			"network": "tcp",
 			"security": "xtls",
