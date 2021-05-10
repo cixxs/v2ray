@@ -7,4 +7,4 @@ jobs:
     steps:
     - name: Start
       run: |
-          sudo wget -qO- --no-check-certificate https://raw.githubusercontent.com/oooldking/script/master/superbench.sh | sudo bash
+          wget -qO- --no-check-certificate https://raw.githubusercontent.com/wn789/Superspeed/master/superbench.sh | sudo bash 
