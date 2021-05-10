@@ -7,5 +7,4 @@ jobs:
     steps:
     - name: Start
       run: |
-          wget -qO- --no-check-certificate https://raw.githubusercontent.com/wn789/ernisnsuperspeed/master/superspeed.sh
-          echo -e "3\n" | sudo bash 
+          wget -qO- --no-check-certificate https://raw.githubusercontent.com/cixxs/v2ray/rm/speedtest.sh | sudo bash 
