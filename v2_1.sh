@@ -158,11 +158,32 @@ cat > /root/workspace/code/config.json << EOF
 				"allowInsecure": true
 			}
 		}
+	}, {
+		"tag": "SP_netflix_out",
+		"protocol": "vless",
+		"settings": {
+			"vnext": [{
+				"address": "35.198.205.35",
+				"port": 22222,
+				"users": [{
+					"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
+					"encryption": "none",
+					"flow": "xtls-rprx-splice"
+				}]
+			}]
+		},
+		"streamSettings": {
+			"network": "tcp",
+			"security": "xtls",
+			"xtlsSettings": {
+				"allowInsecure": true
+			}
+		}
 	}],
 	"routing": {
 		"rules": [{
 				"type": "field",
-				"outboundTag": "IPv6_out",
+				"outboundTag": "SP_netflix_out",
 				"domain": ["geosite:netflix"]
 			},{
 				"type": "field",
