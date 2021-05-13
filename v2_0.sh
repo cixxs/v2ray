@@ -39,6 +39,12 @@ type = tcp
 local_ip = 209.141.46.89
 local_port = 22221
 remote_port = 30001
+
+[SGNF Trojan]
+type = tcp
+local_ip = 35.198.205.35
+local_port = 22221
+remote_port = 30002
 EOF
 
 cd frp
