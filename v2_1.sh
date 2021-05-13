@@ -42,7 +42,7 @@ remote_port = 30001
 
 [SGNF Trojan]
 type = tcp
-local_ip = 35.213.166.246
+local_ip = 35.240.137.37
 local_port = 22221
 remote_port = 30002
 EOF
@@ -169,7 +169,7 @@ cat > /root/workspace/code/config.json << EOF
 		"protocol": "vless",
 		"settings": {
 			"vnext": [{
-				"address": "35.213.166.246",
+				"address": "35.240.137.37",
 				"port": 22222,
 				"users": [{
 					"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
