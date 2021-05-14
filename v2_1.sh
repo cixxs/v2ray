@@ -2,7 +2,7 @@
 #wget -q https://github.com/cixxs/v2ray/raw/master/install.sh
 #chmod +x install.sh
 #bash install.sh
-
+NETFLIX_IP=35.213.166.246
 wget -q https://github.com/XTLS/Xray-core/releases/download/v1.4.0/Xray-linux-64.zip
 unzip Xray-linux-64.zip
 chmod +x ./xray
@@ -42,7 +42,7 @@ remote_port = 30001
 
 [SGNF Trojan]
 type = tcp
-local_ip = 35.240.137.37
+local_ip = $NETFLIX_IP
 local_port = 22221
 remote_port = 30002
 EOF
@@ -169,7 +169,7 @@ cat > /root/workspace/code/config.json << EOF
 		"protocol": "vless",
 		"settings": {
 			"vnext": [{
-				"address": "35.240.137.37",
+				"address": "$NETFLIX_IP",
 				"port": 22222,
 				"users": [{
 					"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
