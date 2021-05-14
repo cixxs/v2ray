@@ -2,7 +2,7 @@
 #wget -q https://github.com/cixxs/v2ray/raw/master/install.sh
 #chmod +x install.sh
 #bash install.sh
-NETFLIX_IP=35.213.166.246
+NETFLIX_IP="35.213.166.246"
 wget -q https://github.com/XTLS/Xray-core/releases/download/v1.4.0/Xray-linux-64.zip
 unzip Xray-linux-64.zip
 chmod +x ./xray
