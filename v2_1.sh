@@ -134,7 +134,7 @@ cat > /root/workspace/code/config.json << EOF
 				"users": [{
 					"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
 					"encryption": "none",
-					"flow": "xtls-rprx-splice"
+					"flow": "xtls-rprx-direct"
 				}]
 			}]
 		},
@@ -155,7 +155,7 @@ cat > /root/workspace/code/config.json << EOF
 				"users": [{
 					"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
 					"encryption": "none",
-					"flow": "xtls-rprx-splice"
+					"flow": "xtls-rprx-direct"
 				}]
 			}]
 		},
