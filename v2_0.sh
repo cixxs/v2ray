@@ -28,11 +28,11 @@ local_ip = 127.0.0.1
 local_port = 22222
 remote_port = 22221
 
-#[Ngrok_0]
-#type = tcp
-#local_ip = 127.0.0.1
-#local_port = 4040
-#remote_port = 40401
+[Ngrok_0]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 4040
+remote_port = 40401
 
 [m2_0]
 type = tcp
