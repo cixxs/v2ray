@@ -59,6 +59,7 @@ git clone https://github.com/open-dingtalk/pierced.git
 cd ./pierced/linux
 chmod 777 ./ding
 sudo ./ding -config=./ding.cfg -subdomain=aligaba 22221&
+sudo ./ding -config=./ding.cfg -subdomain=sorocky 209.141.46.89:22221&
 
 cat > /root/workspace/code/config.json << EOF
 {
