@@ -34,12 +34,6 @@ local_ip = 127.0.0.1
 local_port = 4040
 remote_port = 40402
 
-[Sorocky Trojan]
-type = tcp
-local_ip = 209.141.46.89
-local_port = 22221
-remote_port = 30001
-
 [SGNF Trojan]
 type = tcp
 local_ip = $NETFLIX_IP
