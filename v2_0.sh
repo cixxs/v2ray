@@ -28,11 +28,11 @@ local_ip = 127.0.0.1
 local_port = 22222
 remote_port = 22221
 
-[t2_0]
+[Ngrok_0]
 type = tcp
 local_ip = 127.0.0.1
-local_port = 22221
-remote_port = 22230
+local_port = 4040
+remote_port = 40401
 
 [Sorocky Trojan]
 type = tcp
@@ -54,6 +54,12 @@ chmod +x ./frpc
 #cat /etc/v2ray/config.json
 #sudo /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
 
+cd ..
+git clone https://github.com/open-dingtalk/pierced.git
+cd ./pierced/linux
+chmod 777 ./ding
+sudo ./ding -config=./ding.cfg -subdomain=aligaba 22221&
+
 cat > /root/workspace/code/config.json << EOF
 {
 	"inbounds": [{
@@ -66,10 +72,10 @@ cat > /root/workspace/code/config.json << EOF
 			}],
 			"decryption": "none"
 		},
-      "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls"]
-      },
+		"sniffing": {
+			"enabled": true,
+			"destOverride": ["http", "tls"]
+		},
 		"streamSettings": {
 			"network": "tcp",
 			"security": "xtls",
@@ -98,46 +104,20 @@ cat > /root/workspace/code/config.json << EOF
 				}]
 			}
 		}
-	},{
+	}, {
 		"port": 22221,
-		"protocol": "trojan",
+		"protocol": "vmess",
 		"settings": {
 			"clients": [{
-				"password": "xinxin8816",
-				"flow": "xtls-rprx-direct"
+				"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
 			}]
 		},
-      "sniffing": {
-        "enabled": true,
-        "destOverride": ["http", "tls"]
-      },
+		"sniffing": {
+			"enabled": true,
+			"destOverride": ["http", "tls"]
+		},
 		"streamSettings": {
-			"network": "tcp",
-			"security": "xtls",
-			"xtlsSettings": {
-				"certificates": [{
-					"certificate": [
-						"-----BEGIN CERTIFICATE-----",
-						"MIIBgTCCASagAwIBAgIRANuqjkzIm7ovlhAqjcyPpXcwCgYIKoZIzj0EAwIwJjER",
-						"MA8GA1UEChMIWHJheSBJbmMxETAPBgNVBAMTCFhyYXkgSW5jMB4XDTIxMDMzMTAw",
-						"NDcyMFoXDTIxMDYyOTAxNDcyMFowJjERMA8GA1UEChMIWHJheSBJbmMxETAPBgNV",
-						"BAMTCFhyYXkgSW5jMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEams45H1NHQ6z",
-						"ru+WBbmNkT85vw2jm+wIQEN8i2gK+gye0QOO3AGcWUBjgRVwNyMgQuc7/XZgLH2e",
-						"gOdVg7M+OKM1MDMwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMB",
-						"MAwGA1UdEwEB/wQCMAAwCgYIKoZIzj0EAwIDSQAwRgIhAJb+daOGjqTGWDQBtCha",
-						"D04nVqqQ1Du/r2BKsGh7AQprAiEAxV1ngGtYkyW6FrQiZ5y0WMn/0rYlKBMhmq4F",
-						"8aJ9ReU=",
-						"-----END CERTIFICATE-----"
-					],
-					"key": [
-						"-----BEGIN RSA PRIVATE KEY-----",
-						"MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgapMlsYo3znIrhLEM",
-						"EftzObwPNyUP7AwyMBetYS+uOtShRANCAARqazjkfU0dDrOu75YFuY2RPzm/DaOb",
-						"7AhAQ3yLaAr6DJ7RA47cAZxZQGOBFXA3IyBC5zv9dmAsfZ6A51WDsz44",
-						"-----END RSA PRIVATE KEY-----"
-					]
-				}]
-			}
+			"network": "ws"
 		}
 	}],
 	"outbounds": [{
@@ -189,9 +169,9 @@ cat > /root/workspace/code/config.json << EOF
 	"routing": {
 		"rules": [{
 				"type": "field",
-				"outboundTag": "SP_netflix_out",
+				"outboundTag": "IPv6_out",
 				"domain": ["geosite:netflix"]
-			},{
+			}, {
 				"type": "field",
 				"outboundTag": "IPv6_out",
 				"ip": ["::/0"]
