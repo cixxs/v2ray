@@ -55,11 +55,16 @@ chmod +x ./frpc
 #sudo /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
 
 cd ..
-git clone https://github.com/open-dingtalk/pierced.git
-cd ./pierced/linux
-chmod 777 ./ding
-sudo ./ding -config=./ding.cfg -subdomain=aligaba2 22221&
-sudo ./ding -config=./ding.cfg -subdomain=sorocky 209.141.46.89:22221&
+wget -q https://github.com/xinxin8816/ngrok/releases/download/1/ngrok
+chmod 777 ./ngrok
+
+cat > ./ding.cfg << EOF
+server_addr: "vaiwan.com:443"
+inspect_addr: disabled
+trust_host_root_certs: true
+EOF
+
+sudo ./ngrok -config=./ding.cfg -subdomain=aligaba2 22221&
 
 cat > /root/workspace/code/config.json << EOF
 {
