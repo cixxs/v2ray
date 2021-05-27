@@ -70,7 +70,7 @@ tunnels:
   emby:
     proto:
       http: "129.146.81.146:8096"
-    subdomain: emby2
+    subdomain: emby
 EOF
 
 sudo ./ngrok -config=./ding.cfg start-all&
