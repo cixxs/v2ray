@@ -62,9 +62,18 @@ cat > ./ding.cfg << EOF
 server_addr: "vaiwan.com:443"
 inspect_addr: disabled
 trust_host_root_certs: true
+tunnels:
+  aligaba:
+    proto:
+      http: "22221"
+    subdomain: aligaba
+  emby:
+    proto:
+      http: "129.146.81.146:8096"
+    subdomain: emby
 EOF
 
-sudo ./ngrok -config=./ding.cfg -subdomain=aligaba2 22221&
+sudo ./ngrok -config=./ding.cfg start-all&
 
 cat > /root/workspace/code/config.json << EOF
 {
