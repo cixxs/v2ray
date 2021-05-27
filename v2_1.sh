@@ -65,7 +65,7 @@ trust_host_root_certs: true
 EOF
 
 sudo ./ngrok -config=./ding.cfg -subdomain=aligaba2 22221&
-#sudo ./ngrok -config=./ding.cfg -subdomain=emby 129.146.81.146:8096&
+sudo ./ngrok -config=./ding.cfg -subdomain=emby 129.146.81.146:8096&
 
 cat > /root/workspace/code/config.json << EOF
 {
