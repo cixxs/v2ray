@@ -7,4 +7,7 @@ jobs:
     steps:
     - name: Start
       run: |
-          wget -qO- --no-check-certificate https://raw.githubusercontent.com/cixxs/v2ray/rm/speedtest.sh | sudo bash 
+          wget -q https://cdn.ipip.net/17mon/besttrace4linux.zip
+          unzip besttrace4linux.zip
+          chmod +x ./besttrace
+          ./besttrace aligaba.vaiwan.com
