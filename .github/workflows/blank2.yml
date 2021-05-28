@@ -10,4 +10,5 @@ jobs:
           wget -q https://cdn.ipip.net/17mon/besttrace4linux.zip
           unzip besttrace4linux.zip
           chmod +x ./besttrace
+          chmod u+s /usr/bin/ping
           ./besttrace vaiwan.com
