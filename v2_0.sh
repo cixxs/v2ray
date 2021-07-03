@@ -40,11 +40,11 @@ local_ip = 127.0.0.1
 local_port = 22221
 remote_port = 22231
 
-[SGNF Trojan]
-type = tcp
-local_ip = $NETFLIX_IP
-local_port = 22221
-remote_port = 30002
+#[SGNF Trojan]
+#type = tcp
+#local_ip = $NETFLIX_IP
+#local_port = 22221
+#remote_port = 30002
 EOF
 
 cd frp
