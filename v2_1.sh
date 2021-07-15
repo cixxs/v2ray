@@ -71,8 +71,8 @@ cat > /root/workspace/code/config.json << EOF
 {
 	"dns": {
 		"servers": [
-			"https+local://dns.google/dns-query",
-			"8.8.8.8"
+			"8.8.8.8",
+			"8.8.4.4"
 		],
 		"tag": "dns_inbound"
 	},
@@ -190,8 +190,11 @@ cat > /root/workspace/code/config.json << EOF
 				"type": "field",
 				"outboundTag": "SP_netflix_out",
 				"ip": ["::/0"]
-			},
-			{
+			}, {
+				"type": "field",
+				"outboundTag": "SP_netflix_out",
+				"inboundTag": ["dns_inbound"]
+			}, {
 				"type": "field",
 				"outboundTag": "IPv4_out",
 				"network": "udp,tcp"
