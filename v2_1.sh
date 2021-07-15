@@ -69,6 +69,13 @@ sudo ./ngrok -config=./ding.cfg -subdomain=aligaba2 22221&
 
 cat > /root/workspace/code/config.json << EOF
 {
+	"dns": {
+		"servers": [
+			"8.8.8.8",
+			"8.8.4.4"
+		],
+		"tag": "dns_inbound"
+	},
 	"inbounds": [{
 		"port": 22222,
 		"protocol": "vless",
