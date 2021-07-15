@@ -138,27 +138,6 @@ cat > /root/workspace/code/config.json << EOF
 		"tag": "IPv4_out",
 		"protocol": "freedom"
 	}, {
-		"tag": "IPv6_out",
-		"protocol": "vless",
-		"settings": {
-			"vnext": [{
-				"address": "209.141.46.89",
-				"port": 22222,
-				"users": [{
-					"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-					"encryption": "none",
-					"flow": "xtls-rprx-direct"
-				}]
-			}]
-		},
-		"streamSettings": {
-			"network": "tcp",
-			"security": "xtls",
-			"xtlsSettings": {
-				"allowInsecure": true
-			}
-		}
-	}, {
 		"tag": "SP_netflix_out",
 		"protocol": "vless",
 		"settings": {
@@ -197,7 +176,7 @@ cat > /root/workspace/code/config.json << EOF
 			}, {
 				"type": "field",
 				"outboundTag": "IPv4_out",
-				"network": "udp,tcp"
+				"ip": ["0.0.0.0/0"]
 			}
 		]
 	}
