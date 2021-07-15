@@ -69,6 +69,13 @@ sudo ./ngrok -config=./ding.cfg -subdomain=aligaba 22221&
 
 cat > /root/workspace/code/config.json << EOF
 {
+	"dns": {
+		"servers": [
+			"8.8.8.8",
+			"8.8.4.4"
+		],
+		"tag": "dns_inbound"
+	},
 	"inbounds": [{
 		"port": 22222,
 		"protocol": "vless",
@@ -131,27 +138,6 @@ cat > /root/workspace/code/config.json << EOF
 		"tag": "IPv4_out",
 		"protocol": "freedom"
 	}, {
-		"tag": "IPv6_out",
-		"protocol": "vless",
-		"settings": {
-			"vnext": [{
-				"address": "209.141.46.89",
-				"port": 22222,
-				"users": [{
-					"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-					"encryption": "none",
-					"flow": "xtls-rprx-direct"
-				}]
-			}]
-		},
-		"streamSettings": {
-			"network": "tcp",
-			"security": "xtls",
-			"xtlsSettings": {
-				"allowInsecure": true
-			}
-		}
-	}, {
 		"tag": "SP_netflix_out",
 		"protocol": "vless",
 		"settings": {
@@ -181,13 +167,16 @@ cat > /root/workspace/code/config.json << EOF
 				"domain": ["geosite:netflix"]
 			}, {
 				"type": "field",
+				"outboundTag": "IPv4_out",
+				"ip": ["0.0.0.0/0"]
+			}, {
+				"type": "field",
 				"outboundTag": "SP_netflix_out",
 				"ip": ["::/0"]
-			},
-			{
+			}, {
 				"type": "field",
-				"outboundTag": "IPv4_out",
-				"network": "udp,tcp"
+				"outboundTag": "SP_netflix_out",
+				"inboundTag": ["dns_inbound"]
 			}
 		]
 	}
