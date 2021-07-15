@@ -167,16 +167,16 @@ cat > /root/workspace/code/config.json << EOF
 				"domain": ["geosite:netflix"]
 			}, {
 				"type": "field",
+				"outboundTag": "IPv4_out",
+				"ip": ["0.0.0.0/0"]
+			}, {
+				"type": "field",
 				"outboundTag": "SP_netflix_out",
 				"ip": ["::/0"]
 			}, {
 				"type": "field",
 				"outboundTag": "SP_netflix_out",
 				"inboundTag": ["dns_inbound"]
-			}, {
-				"type": "field",
-				"outboundTag": "IPv4_out",
-				"ip": ["0.0.0.0/0"]
 			}
 		]
 	}
