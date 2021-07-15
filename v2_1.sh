@@ -174,6 +174,7 @@ cat > /root/workspace/code/config.json << EOF
 		}
 	}],
 	"routing": {
+		"domainStrategy": "IPIfNonMatch",
 		"rules": [{
 				"type": "field",
 				"outboundTag": "SP_netflix_out",
