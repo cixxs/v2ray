@@ -71,8 +71,8 @@ cat > /root/workspace/code/config.json << EOF
 {
 	"dns": {
 		"servers": [
-			"8.8.8.8",
-			"8.8.4.4"
+			"https+local://dns.google/dns-query",
+			"8.8.8.8"
 		],
 		"tag": "dns_inbound"
 	},
