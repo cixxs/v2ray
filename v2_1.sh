@@ -72,7 +72,14 @@ cat > /root/workspace/code/config.json << EOF
 	"dns": {
 		"servers": [
 			"8.8.8.8",
-			"8.8.4.4"
+			"8.8.4.4",
+			{
+				"address": "34.87.4.14",
+				"port": 53,
+				"domains": [
+					"geosite:netflix"
+				]
+			}
 		],
 		"tag": "dns_inbound"
 	},
@@ -158,27 +165,32 @@ cat > /root/workspace/code/config.json << EOF
 				"allowInsecure": true
 			}
 		}
+	}, {
+		"tag": "NF_out",
+		"protocol": "freedom",
+		"settings": {
+			"domainStrategy": "UseIP"
+		}
 	}],
 	"routing": {
 		"domainStrategy": "IPIfNonMatch",
 		"rules": [{
-				"type": "field",
-				"outboundTag": "SP_netflix_out",
-				"domain": ["geosite:netflix"]
-			}, {
-				"type": "field",
-				"outboundTag": "IPv4_out",
-				"ip": ["0.0.0.0/0"]
-			}, {
-				"type": "field",
-				"outboundTag": "SP_netflix_out",
-				"ip": ["::/0"]
-			}, {
-				"type": "field",
-				"outboundTag": "SP_netflix_out",
-				"inboundTag": ["dns_inbound"]
-			}
-		]
+			"type": "field",
+			"outboundTag": "NF_out",
+			"domain": ["geosite:netflix"]
+		}, {
+			"type": "field",
+			"outboundTag": "IPv4_out",
+			"ip": ["0.0.0.0/0"]
+		}, {
+			"type": "field",
+			"outboundTag": "SP_netflix_out",
+			"ip": ["::/0"]
+		}, {
+			"type": "field",
+			"outboundTag": "SP_netflix_out",
+			"inboundTag": ["dns_inbound"]
+		}]
 	}
 }
 EOF
