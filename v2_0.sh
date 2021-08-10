@@ -16,7 +16,7 @@ cat > ./frp/frpc.ini << EOF
 server_addr = xinxin8816.tpddns.cn
 server_port = 7000
 tcp_mux     = false
-protocol = tcp
+protocol = websocket
 token = xinxin8816
 #pool_count = 10
 heartbeat_interval = 1
