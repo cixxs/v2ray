@@ -16,7 +16,7 @@ cat > ./frp/frpc.ini << EOF
 server_addr = awsbj.nkeo.top
 server_port = 37000
 tcp_mux     = false
-protocol = websocket
+protocol = tcp
 token = xinxin8816
 #pool_count = 10
 heartbeat_interval = 1
