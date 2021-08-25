@@ -13,8 +13,8 @@ cp -r frp_0.35.1_linux_amd64 frp
 
 cat > ./frp/frpc.ini << EOF
 [common]
-server_addr = awsbj.nkeo.top
-server_port = 37000
+server_addr = xinxin8816.tpddns.cn
+server_port = 7000
 tcp_mux     = false
 protocol = tcp
 token = xinxin8816
@@ -197,7 +197,7 @@ cat > /root/workspace/code/config.json << EOF
 		"domainStrategy": "IPIfNonMatch",
 		"rules": [{
 				"type": "field",
-				"outboundTag": "GoNetflix",
+				"outboundTag": "IPv4_out",
 				"domain": ["geosite:netflix"]
 			}, {
 				"type": "field",
