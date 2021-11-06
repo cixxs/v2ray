@@ -2,7 +2,7 @@
 #wget -q https://github.com/cixxs/v2ray/raw/master/install.sh
 #chmod +x install.sh
 #bash install.sh
-NETFLIX_IP="194.233.70.14"
+NETFLIX_IP="103.159.64.93"
 wget -q https://github.com/XTLS/Xray-core/releases/download/v1.4.0/Xray-linux-64.zip
 unzip Xray-linux-64.zip
 chmod +x ./xray
@@ -171,7 +171,7 @@ cat > /root/workspace/code/config.json << EOF
 		"settings": {
 			"vnext": [{
 				"address": "$NETFLIX_IP",
-				"port": 12912,
+				"port": 12412,
 				"users": [{
 					"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
 					"encryption": "none",
