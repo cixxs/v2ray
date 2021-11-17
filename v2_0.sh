@@ -192,12 +192,44 @@ cat > /root/workspace/code/config.json << EOF
 		"settings": {
 			"domainStrategy": "UseIP"
 		}
-	}],
+	}, {
+      "tag": "GoNetflix",
+      "protocol": "vmess",
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false
+        },
+        "wsSettings": {
+          "path": "ws"
+        }
+      },
+      "mux": {
+        "enabled": true,
+        "concurrency": 8
+      },
+      "settings": {
+        "vnext": [
+          {
+            "address": "free-sg-01.gonetflix.xyz",
+            "port": 443,
+            "users": [
+              {
+                "id": "402d7490-6d4b-42d4-80ed-e681b0e6f1f9",
+                "security": "auto",
+                "alterId": 0
+              }
+            ]
+          }
+        ]
+      }
+    }],
 	"routing": {
 		"domainStrategy": "IPIfNonMatch",
 		"rules": [{
 				"type": "field",
-				"outboundTag": "SP_netflix_out",
+				"outboundTag": "GoNetflix",
 				"domain": ["geosite:netflix"]
 			}, {
 				"type": "field",
