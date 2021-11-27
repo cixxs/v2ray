@@ -18,7 +18,7 @@ server_port = 7000
 tcp_mux     = false
 protocol = websocket
 token = xinxin8816
-#pool_count = 10
+pool_count = 50
 heartbeat_interval = 1
 login_fail_exit = false
 
