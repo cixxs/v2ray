@@ -7,9 +7,24 @@ wget -q https://github.com/XTLS/Xray-core/releases/download/v1.4.0/Xray-linux-64
 unzip Xray-linux-64.zip
 chmod +x ./xray
 
+wget -q https://github.com/rapiz1/rathole/releases/download/v0.3.8/rathole-x86_64-unknown-linux-gnu.zip
+unzip rathole-x86_64-unknown-linux-gnu.zip
+chmod +x ./rathole
+
 wget -q https://github.com/fatedier/frp/releases/download/v0.35.1/frp_0.35.1_linux_amd64.tar.gz
 tar -zxvf frp_0.35.1_linux_amd64.tar.gz
 cp -r frp_0.35.1_linux_amd64 frp
+
+cat > ./client.toml << EOF
+# client.toml
+[client]
+remote_addr = "xinxin8816.tpddns.cn:2333" # 服务器的地址。端口必须与 `server.bind_addr` 中的端口相同。
+[client.services.my_nas_ssh]
+token = "use_a_secret_that_only_you_know" # 必须与服务器相同以通过验证
+local_addr = "127.0.0.1:22222" # 需要被转发的服务的地址
+EOF
+
+./rathole client.toml&
 
 cat > ./frp/frpc.ini << EOF
 [common]
