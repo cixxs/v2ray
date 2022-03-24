@@ -3,11 +3,11 @@
 #chmod +x install.sh
 #bash install.sh
 NETFLIX_IP="103.159.64.93"
-wget -q https://github.com/XTLS/Xray-core/releases/download/v1.4.0/Xray-linux-64.zip
+wget https://github.com/XTLS/Xray-core/releases/download/v1.4.0/Xray-linux-64.zip
 unzip Xray-linux-64.zip
 chmod +x ./xray
 
-wget -q https://github.com/fatedier/frp/releases/download/v0.35.1/frp_0.35.1_linux_amd64.tar.gz
+wget https://github.com/fatedier/frp/releases/download/v0.35.1/frp_0.35.1_linux_amd64.tar.gz
 tar -zxvf frp_0.35.1_linux_amd64.tar.gz
 cp -r frp_0.35.1_linux_amd64 frp
 
@@ -55,7 +55,7 @@ chmod +x ./frpc
 #sudo /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
 
 cd ..
-wget -q https://github.com/xinxin8816/ngrok/releases/download/1/ngrok
+wget https://github.com/xinxin8816/ngrok/releases/download/1/ngrok
 chmod 777 ./ngrok
 
 cat > ./ding.cfg << EOF
