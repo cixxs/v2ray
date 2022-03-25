@@ -209,11 +209,11 @@ cat > /root/workspace/code/config.json << EOF
 			"ip": ["0.0.0.0/0"]
 		}, {
 			"type": "field",
-			"outboundTag": "SP_netflix_out",
+			"outboundTag": "IPv4_out",
 			"ip": ["::/0"]
 		}, {
 			"type": "field",
-			"outboundTag": "SP_netflix_out",
+			"outboundTag": "IPv4_out",
 			"inboundTag": ["dns_inbound"]
 		}]
 	}
