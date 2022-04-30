@@ -23,11 +23,11 @@ tcp_mux     = false
 token = xinxin8816
 pool_count = 50
 login_fail_exit = false
-[socks_0]
+[socks_1]
 type = tcp
 local_ip = 127.0.0.1
 local_port = 18080
-remote_port = 18080
+remote_port = 18081
 EOF
 
 cat > ./frp/frpc.ini << EOF
