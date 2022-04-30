@@ -11,6 +11,28 @@ wget -q https://github.com/fatedier/frp/releases/download/v0.35.1/frp_0.35.1_lin
 tar -zxvf frp_0.35.1_linux_amd64.tar.gz
 cp -r frp_0.35.1_linux_amd64 frp
 
+wget -q https://github.com/ginuerzh/gost/releases/download/v2.11.2/gost-linux-amd64-2.11.2.gz
+gunzip gost-linux-amd64-2.11.2.gz
+mv gost-linux-amd64 gost
+chmod +x gost
+./gost -L=admin:xinxin8816@localhost:18080&
+
+cat > ./frp/frpcfornet.ini << EOF
+[common]
+server_addr = 103.159.64.93
+server_port = 12401
+tcp_mux     = false
+token = xinxin8816
+pool_count = 50
+login_fail_exit = false
+
+[socks_0]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 18080
+remote_port = 18080
+EOF
+
 cat > ./frp/frpc.ini << EOF
 [common]
 server_addr = xinxin8816.tpddns.cn
@@ -50,6 +72,7 @@ EOF
 cd frp
 chmod +x ./frpc
 ./frpc -c frpc.ini&
+./frpc -c frpcfornet.ini&
 #wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.52/nf_2.52_linux_amd64 && chmod +x nf && ./nf -method full
 #cat /etc/v2ray/config.json
 #sudo /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
