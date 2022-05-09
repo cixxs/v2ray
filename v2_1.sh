@@ -221,7 +221,7 @@ cat > /root/workspace/code/config.json << EOF
 		"domainStrategy": "IPIfNonMatch",
 		"rules": [{
 			"type": "field",
-			"outboundTag": "IPv4_out",
+			"outboundTag": "GoNetflix",
 			"domain": ["geosite:netflix"]
 		}, {
 			"type": "field",
