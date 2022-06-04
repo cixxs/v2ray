@@ -130,7 +130,7 @@ originRequest:
   noTLSVerify: true
 ingress:
   - hostname: sorock.googlecn.ga
-    service: https://sorocky.com:22300
+    service: https://sorocky.com
   - service: http_status:404
 EOF
 
