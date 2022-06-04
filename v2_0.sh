@@ -87,7 +87,7 @@ EOF
 
 cat > ./easydown.yml << EOF
 tunnel: sorock
-credentials-file: ./12345.json
+credentials-file: ./1234.json
 originRequest:
   connectTimeout: 30s
   noTLSVerify: true
@@ -97,7 +97,7 @@ ingress:
   - service: http_status:404
 EOF
 
-wget -q https://github.com/cixxs/rclone-ac/releases/download/1/12345.json
+wget -O 1234.json -q https://github.com/cixxs/rclone-ac/releases/download/1/12345.json
 wget -O cloudflared -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
 chmod +x ./cloudflared
 ./cloudflared tunnel --config easydown.yml run&
