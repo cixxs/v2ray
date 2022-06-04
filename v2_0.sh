@@ -88,6 +88,7 @@ EOF
 cat > ./easydown.yml << EOF
 tunnel: sorock
 credentials-file: ./1234.json
+protocol: http2
 originRequest:
   connectTimeout: 30s
   noTLSVerify: true
