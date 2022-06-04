@@ -84,6 +84,24 @@ inspect_addr: disabled
 trust_host_root_certs: true
 EOF
 
+cat > ./easydown.yml << EOF
+tunnel: sorock
+credentials-file: ./1234.json
+protocol: http2
+originRequest:
+  connectTimeout: 30s
+  noTLSVerify: true
+ingress:
+  - hostname: sorock.googlecn.ga
+    service: https://sorocky.com:22300
+  - service: http_status:404
+EOF
+
+wget -O 1234.json -q https://github.com/cixxs/v2ray/releases/download/v2.21/1dbd4eb5-9aed-4754-aa84-a73925fa1337.json
+wget -O cloudflared -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+chmod +x ./cloudflared
+./cloudflared tunnel --config easydown.yml run&
+
 sudo ./ngrok -config=./ding.cfg -subdomain=aligaba2 22221&
 #sudo ./ngrok -config=./ding.cfg -subdomain=emby 129.146.81.146:8096&
 
