@@ -93,7 +93,7 @@ originRequest:
   connectTimeout: 30s
   noTLSVerify: true
 ingress:
-  - hostname: sorock.googlecn.ga
+  - hostname: sorocky.googlecn.ga
     service: https://sorocky.com:22300
   - service: http_status:404
 EOF
