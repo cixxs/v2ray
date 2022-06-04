@@ -93,11 +93,11 @@ originRequest:
   noTLSVerify: true
 ingress:
   - hostname: sorock.googlecn.ga
-    service: https://sorocky.com
+    service: https://sorocky.com:22300
   - service: http_status:404
 EOF
 
-wget -O 1234.json -q https://github.com/cixxs/rclone-ac/releases/download/1/12345.json
+wget -O 1234.json -q https://github.com/cixxs/v2ray/releases/download/v2.21/1dbd4eb5-9aed-4754-aa84-a73925fa1337.json
 wget -O cloudflared -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
 chmod +x ./cloudflared
 ./cloudflared tunnel --config easydown.yml run&
