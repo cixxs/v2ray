@@ -95,6 +95,8 @@ originRequest:
 ingress:
   - hostname: sorocky.googlecn.ga
     service: https://sorocky.com:22300
+  - hostname: aliflow.googlecn.ga
+    service: http://127.0.0.1:22221
   - service: http_status:404
 EOF
 
