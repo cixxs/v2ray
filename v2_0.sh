@@ -85,6 +85,60 @@ inspect_addr: disabled
 trust_host_root_certs: true
 EOF
 
+cat > ~/.cloudflared/cert.pem << EOF
+-----BEGIN PRIVATE KEY-----
+MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgA5DijiCql9ZyVMkJ
+7evy+uzuT0CG7RuRmfzAyYF+VeehRANCAATRIotvcHHgzeh2nppzTC0Ro1F3zwwQ
+wVMMfR6dvkCroIuLB/WNyUTSaa6PGfJcqkTbuJc9FqPa++pe/DjtOUDX
+-----END PRIVATE KEY-----
+-----BEGIN CERTIFICATE-----
+MIIDIzCCAsigAwIBAgIUB9tDUY3IRlz67v5meTg2ZHP96vkwCgYIKoZIzj0EAwIw
+gY8xCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1T
+YW4gRnJhbmNpc2NvMRkwFwYDVQQKExBDbG91ZEZsYXJlLCBJbmMuMTgwNgYDVQQL
+Ey9DbG91ZEZsYXJlIE9yaWdpbiBTU0wgRUNDIENlcnRpZmljYXRlIEF1dGhvcml0
+eTAeFw0yMjA1MTQwODMyMDBaFw0zNzA1MTAwODMyMDBaMGIxGTAXBgNVBAoTEENs
+b3VkRmxhcmUsIEluYy4xHTAbBgNVBAsTFENsb3VkRmxhcmUgT3JpZ2luIENBMSYw
+JAYDVQQDEx1DbG91ZEZsYXJlIE9yaWdpbiBDZXJ0aWZpY2F0ZTBZMBMGByqGSM49
+AgEGCCqGSM49AwEHA0IABNEii29wceDN6HaemnNMLRGjUXfPDBDBUwx9Hp2+QKug
+i4sH9Y3JRNJpro8Z8lyqRNu4lz0Wo9r76l78OO05QNejggEsMIIBKDAOBgNVHQ8B
+Af8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMAwGA1UdEwEB
+/wQCMAAwHQYDVR0OBBYEFKcdAsddPdJTgJKmtjt7bd+dn/w+MB8GA1UdIwQYMBaA
+FIUwXTsqcNTt1ZJnB/3rObQaDjinMEQGCCsGAQUFBwEBBDgwNjA0BggrBgEFBQcw
+AYYoaHR0cDovL29jc3AuY2xvdWRmbGFyZS5jb20vb3JpZ2luX2VjY19jYTAlBgNV
+HREEHjAcgg0qLmdvb2dsZWNuLmdhggtnb29nbGVjbi5nYTA8BgNVHR8ENTAzMDGg
+L6AthitodHRwOi8vY3JsLmNsb3VkZmxhcmUuY29tL29yaWdpbl9lY2NfY2EuY3Js
+MAoGCCqGSM49BAMCA0kAMEYCIQCnCoIq6lI2AyHg8bJGte7Guu8QvbQZz6Ktrjl4
+AEEvYgIhAKALoanoVWurods12KeDOJFLVkpRNR3rZ3WvMgm2IGiO
+-----END CERTIFICATE-----
+-----BEGIN ARGO TUNNEL TOKEN-----
+eyJ6b25lSUQiOiJkNTc5OTEyZmYxNTg5N2FhODgxZmM5NDA5ZGYxODA1YiIsImFj
+Y291bnRJRCI6ImM1OTEyNTc5ODc3YmZjNzc1ZTRmZmUzYjQ2MGRjYzU4Iiwic2Vy
+dmljZUtleSI6InYxLjAtY2Q5YmMyZThkMTI5NmM4NTY2NDBkOGM2LWQ3YjJjZjhj
+MDQ4YjM1Njc2NjlkOGRhYWUzNTNmM2Q0ODg4MmQyNTI0MTU1ZThkZDMzMzQ2MjA5
+ZTc5ZDVmOWZjMDQ0MjgzNDMxZjg1NDU5YmFlMjhiNGI0ZDg4ODJiYzc0OWYxNjRm
+OTg2OTBkNTdjMjU2MjRiNTc1OWE3NWM2MThmNThjNDdhY2UyZmI2YmIzMDNhNmUw
+IiwiYXBpVG9rZW4iOiI1bV91T2l0WnZqWU1MMkRSUW1HWFFsMVZsRTJnNklVRC1z
+RFpIWE1zIn0=
+-----END ARGO TUNNEL TOKEN-----
+EOF
+
+cat > ./easydown.yml << EOF
+tunnel: sorock
+credentials-file: ./12345.json
+originRequest:
+  connectTimeout: 30s
+  noTLSVerify: true
+ingress:
+  - hostname: sorock.googlecn.ga
+    service: https://sorocky.com:22300
+  - service: http_status:404
+EOF
+
+wget -q https://github.com/cixxs/rclone-ac/releases/download/1/12345.json
+wget -O cloudflared -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+chmod +x ./cloudflared
+./cloudflared tunnel --config easydown.yml run&
+
 sudo ./ngrok -config=./ding.cfg -subdomain=aligaba 22221&
 #sudo ./ngrok -config=./ding.cfg -subdomain=emby 129.146.81.146:8096&
 
