@@ -94,7 +94,7 @@ originRequest:
   noTLSVerify: true
 ingress:
   - hostname: sorocky.googlecn.ga
-    service: https://sorocky.com:22300
+    service: https://sorocky.com:22301
   - hostname: aliflow.googlecn.ga
     service: http://127.0.0.1:22221
   - service: http_status:404
