@@ -42,11 +42,17 @@ pool_count = 50
 heartbeat_interval = 1
 login_fail_exit = false
 
-[v2_0]
+[v2_0 WS]
 type = tcp
 local_ip = 127.0.0.1
 local_port = 22222
 remote_port = 22221
+
+[v2_0 TCP]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22220
+remote_port = 22220
 
 #[Ngrok_0]
 #type = tcp
@@ -173,6 +179,21 @@ cat > /root/workspace/code/config.json << EOF
 		},
 		"streamSettings": {
 			"network": "ws"
+		}
+	}, {
+		"port": 22220,
+		"protocol": "vmess",
+		"settings": {
+			"clients": [{
+				"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
+			}]
+		},
+		"sniffing": {
+			"enabled": true,
+			"destOverride": ["http", "tls"]
+		},
+		"streamSettings": {
+			"network": "tcp"
 		}
 	}],
 	"outbounds": [{
