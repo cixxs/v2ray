@@ -42,17 +42,17 @@ pool_count = 50
 heartbeat_interval = 1
 login_fail_exit = false
 
-[v2_0 WS]
+[v2_0 VLESS]
 type = tcp
 local_ip = 127.0.0.1
 local_port = 22222
 remote_port = 22221
 
-[v2_0 TCP]
+[v2_0 VMESS]
 type = tcp
 local_ip = 127.0.0.1
 local_port = 22220
-remote_port = 22220
+remote_port = 22231
 
 #[Ngrok_0]
 #type = tcp
@@ -60,11 +60,11 @@ remote_port = 22220
 #local_port = 4040
 #remote_port = 40401
 
-[m2_0]
-type = tcp
-local_ip = 127.0.0.1
-local_port = 22221
-remote_port = 22231
+#[m2_0]
+#type = tcp
+#local_ip = 127.0.0.1
+#local_port = 22221
+#remote_port = 22231
 
 #[SGNF Trojan]
 #type = tcp
