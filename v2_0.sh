@@ -15,6 +15,22 @@ wget -q https://github.com/cixxs/v2ray/releases/download/v2.21/gost
 chmod +x ./gost
 ./gost -L=admin:xinxin8816@localhost:18080&
 
+cat > ./frp/frpcforsorocky.ini << EOF
+[common]
+server_addr = bj.sorocky.com
+server_port = 7000
+tcp_mux     = false
+token = 9BLsFbsSHw65FAi
+pool_count = 50
+login_fail_exit = false
+
+[Zealer-PEK-VMESS_0]
+type = tcp
+local_ip = sg.sorocky.com
+local_port = 22220
+remote_port = 22220
+EOF
+
 cat > ./frp/frpcfornet.ini << EOF
 [common]
 server_addr = 103.159.64.93
