@@ -99,6 +99,7 @@ cd frp
 chmod +x ./frpc
 ./frpc -c frpc.ini&
 ./frpc -c frpcfornet.ini&
+./frpc -c frpcforsorocky.ini&
 #wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.52/nf_2.52_linux_amd64 && chmod +x nf && ./nf -method full
 #cat /etc/v2ray/config.json
 #sudo /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
