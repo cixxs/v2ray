@@ -31,22 +31,6 @@ local_port = 22220
 remote_port = 22220
 EOF
 
-cat > ./frp/frpcfornet.ini << EOF
-[common]
-server_addr = 103.159.64.93
-server_port = 12401
-tcp_mux     = false
-token = xinxin8816
-pool_count = 50
-login_fail_exit = false
-
-[socks_0]
-type = tcp
-local_ip = 127.0.0.1
-local_port = 18080
-remote_port = 18080
-EOF
-
 cat > ./frp/frpc.ini << EOF
 [common]
 server_addr = xinxin8816.tpddns.cn
@@ -98,7 +82,6 @@ EOF
 cd frp
 chmod +x ./frpc
 ./frpc -c frpc.ini&
-./frpc -c frpcfornet.ini&
 ./frpc -c frpcforsorocky.ini&
 #wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.52/nf_2.52_linux_amd64 && chmod +x nf && ./nf -method full
 #cat /etc/v2ray/config.json
