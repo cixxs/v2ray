@@ -54,11 +54,17 @@ local_ip = 127.0.0.1
 local_port = 22220
 remote_port = 22231
 
-[v2_0 Sorocky]
+[SGP_443_0]
 type = tcp
-local_ip = sorocky.com
-local_port = 22221
-remote_port = 2220
+local_ip = sg.sorocky.com
+local_port = 24430
+remote_port = 443
+
+#[v2_0 Sorocky]
+#type = tcp
+#local_ip = sorocky.com
+#local_port = 22221
+#remote_port = 2220
 
 #[Ngrok_0]
 #type = tcp
