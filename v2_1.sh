@@ -15,7 +15,7 @@ wget -q https://github.com/cixxs/v2ray/releases/download/v2.21/gost
 chmod +x ./gost
 ./gost -L=admin:xinxin8816@localhost:18080&
 
-cat > ./domain.crt << EOF
+cat > ./frp/domain.crt << EOF
 -----BEGIN CERTIFICATE-----
 MIIEYzCCBAmgAwIBAgIQdlArK1jx3i6ISenoFXhHfzAKBggqhkjOPQQDAjBZMQsw
 CQYDVQQGEwJDTjElMCMGA1UEChMcVHJ1c3RBc2lhIFRlY2hub2xvZ2llcywgSW5j
@@ -44,7 +44,7 @@ cYbklbhhCGZXTxWJUHptv5a613yqvlg=
 -----END CERTIFICATE-----
 EOF
 
-cat > ./domain.key << EOF
+cat > ./frp/domain.key << EOF
 -----BEGIN EC PRIVATE KEY-----
 MHcCAQEEIHqQ60kSeTArPBu3q0YoeONLsKHWuF5/cj5pBI8UVbuHoAoGCCqGSM49
 AwEHoUQDQgAEGko+4/wZxzTs0n9mBrUNYfd0OLaMxGHWAkQUB9xuCQt6fifmbREa
