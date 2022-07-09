@@ -95,7 +95,7 @@ remote_port = 22232
 type = https
 custom_domains = sanjose.zeallr.com
 plugin = https2https
-plugin_local_addr = sg.sorocky.com:443
+plugin_local_addr = sanjose.zeallr.com
 plugin_crt_path = ./domain.crt
 plugin_key_path = ./domain.key
 
