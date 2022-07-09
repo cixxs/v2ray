@@ -92,12 +92,10 @@ local_port = 22220
 remote_port = 22231
 
 [SGP_443_0]
-type = https
-local_ip = sg.sorocky.com
-local_port = 443
+type = http
 custom_domains = sanjose.zeallr.com
-plugin = https2https
-plugin_local_addr = sg.sorocky.com:443
+plugin = https2http
+plugin_local_addr = sg.sorocky.com:8906
 plugin_crt_path = ./domain.crt
 plugin_key_path = ./domain.key
 
