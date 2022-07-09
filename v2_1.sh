@@ -54,6 +54,12 @@ local_ip = 127.0.0.1
 local_port = 22220
 remote_port = 22232
 
+[SGP_443_1]
+type = tcp
+local_ip = sg.sorocky.com
+local_port = 24431
+remote_port = 443
+
 #[Ngrok_1]
 #type = tcp
 #local_ip = 127.0.0.1
