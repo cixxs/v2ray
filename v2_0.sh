@@ -57,7 +57,7 @@ remote_port = 22231
 [SGP_443_0]
 type = tcp
 local_ip = sg.sorocky.com
-local_port = 24430
+local_port = 443
 remote_port = 443
 
 #[v2_0 Sorocky]
