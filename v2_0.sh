@@ -7,9 +7,9 @@ wget -q https://github.com/XTLS/Xray-core/releases/download/v1.4.0/Xray-linux-64
 unzip Xray-linux-64.zip
 chmod +x ./xray
 
-wget -q https://github.com/fatedier/frp/releases/download/v0.35.1/frp_0.35.1_linux_amd64.tar.gz
-tar -zxvf frp_0.35.1_linux_amd64.tar.gz
-cp -r frp_0.35.1_linux_amd64 frp
+wget https://github.com/fatedier/frp/releases/download/v0.43.0/frp_0.43.0_linux_amd64.tar.gz
+tar -zxvf frp_0.43.0_linux_amd64.tar.gz
+cp -r frp_0.43.0_linux_amd64 frp
 
 wget -q https://github.com/cixxs/v2ray/releases/download/v2.21/gost
 chmod +x ./gost
