@@ -54,7 +54,7 @@ local_ip = 127.0.0.1
 local_port = 22220
 remote_port = 22232
 
-[SGP_443_1]
+[Sanjose_443_1]
 type = https
 local_ip = sanjose.zeallr.com
 local_port = 443
@@ -63,6 +63,12 @@ custom_domains = sanjose.zeallr.com
 #plugin_local_addr = sanjose.zeallr.com
 #plugin_crt_path = ./domain.crt
 #plugin_key_path = ./domain.key
+
+[Odyssey_443_1]
+type = https
+local_ip = odyssey.zeallr.com
+local_port = 443
+custom_domains = odyssey.zeallr.com
 
 #[Ngrok_1]
 #type = tcp
