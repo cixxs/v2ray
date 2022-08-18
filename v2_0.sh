@@ -237,7 +237,7 @@ cat > /root/workspace/code/config.json << EOF
 		},
 		"settings": {
 			"vnext": [{
-				"address": "free-sg-01.gonetflix.xyz",
+				"address": "free-sg-01.unblocknetflix.cf",
 				"port": 443,
 				"users": [{
 					"id": "402d7490-6d4b-42d4-80ed-e681b0e6f1f9",
