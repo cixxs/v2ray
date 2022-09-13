@@ -23,7 +23,7 @@ token = "use_a_secret_that_only_you_know"
 local_addr = "127.0.0.1:22222"
 EOF
 
-./rathole client.toml&
+#./rathole client.toml&
 
 cat > ./frp/frpc.ini << EOF
 [common]
