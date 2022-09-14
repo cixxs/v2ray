@@ -27,7 +27,7 @@ EOF
 
 cat > ./frp/frpc.ini << EOF
 [common]
-server_addr = xinxin8816.tpddns.cn
+server_addr = 172.82.16.117
 server_port = 7000
 tcp_mux     = false
 protocol = tcp
