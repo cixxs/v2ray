@@ -33,7 +33,7 @@ EOF
 
 cat > ./frp/frpc.ini << EOF
 [common]
-server_addr = xinxin8816.tpddns.cn
+server_addr = xinxin8816.imwork.net
 server_port = 7000
 tcp_mux     = false
 protocol = websocket
