@@ -35,7 +35,7 @@ EOF
 cat > ./frp/frpc.ini << EOF
 [common]
 server_addr = xinxin8816.iok.la
-server_port = 7000
+server_port = 7100
 tcp_mux     = false
 tls_enable = true
 #protocol = websocket
