@@ -34,7 +34,7 @@ EOF
 
 cat > ./frp/frpc.ini << EOF
 [common]
-server_addr = xinxin8816.imwork.net
+server_addr = xinxin8816.iok.la
 server_port = 7000
 tcp_mux     = false
 tls_enable = true
