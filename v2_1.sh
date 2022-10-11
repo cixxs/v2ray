@@ -36,6 +36,7 @@ cat > ./frp/frpc.ini << EOF
 server_addr = xinxin8816.imwork.net
 server_port = 7000
 tcp_mux     = false
+tls_enable = true
 protocol = websocket
 token = xinxin8816
 pool_count = 50
