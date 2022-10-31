@@ -37,7 +37,7 @@ cat > ./frp/frpc.ini << EOF
 server_addr = xinxin8816.iok.la
 server_port = 7000
 tcp_mux     = false
-tls_enable = true
+tls_enable = false
 #protocol = kcp
 token = xinxin8816
 pool_count = 50
