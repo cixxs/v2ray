@@ -252,6 +252,23 @@ cat > /root/workspace/code/config.json << EOF
 		"tag": "IPv4_out",
 		"protocol": "freedom"
 	}, {
+		"tag": "Sanjose",
+		"protocol": "vless",
+		"settings": {
+			"vnext": [{
+				"address": "152.70.123.170",
+				"port": 4001,
+				"users": [{
+					"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
+					"encryption": "none",
+					"flow": "xtls-rprx-direct"
+				}]
+			}]
+		},
+		"streamSettings": {
+			"network": "tcp"
+		}
+	}, {
 		"tag": "SP_netflix_out",
 		"protocol": "vless",
 		"settings": {
