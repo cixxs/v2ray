@@ -252,7 +252,7 @@ cat > /root/workspace/code/config.json << EOF
 		"tag": "IPv4_out",
 		"protocol": "freedom"
 	}, {
-		"tag": "Sanjose",
+		"tag": "sanjose",
 		"protocol": "vless",
 		"settings": {
 			"vnext": [{
@@ -299,6 +299,10 @@ cat > /root/workspace/code/config.json << EOF
 	"routing": {
 		"domainStrategy": "IPIfNonMatch",
 		"rules": [{
+				"type": "field",
+				"outboundTag": "sanjose",
+				"domain": ["geosite:youtube"]
+			},{
 				"type": "field",
 				"outboundTag": "IPv4_out",
 				"domain": ["geosite:netflix"]
