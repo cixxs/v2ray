@@ -25,10 +25,16 @@ token = 9BLsFbsSHw65FAi
 pool_count = 50
 login_fail_exit = false
 
-[Zealer-PEK-VMESS_1]
+[Zealer-PEK-SIN_1]
 type = tcp
 local_ip = sg.sorocky.com
 local_port = 22220
+remote_port = 22221
+
+[Zealer-PEK-SJC_1]
+type = tcp
+local_ip = 152.70.123.170
+local_port = 22230
 remote_port = 22221
 EOF
 
