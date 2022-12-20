@@ -25,11 +25,17 @@ token = 9BLsFbsSHw65FAi
 pool_count = 50
 login_fail_exit = false
 
-[Zealer-PEK-VMESS_0]
+[Zealer-PEK-SIN_0]
 type = tcp
 local_ip = sg.sorocky.com
 local_port = 22220
 remote_port = 22220
+
+[Zealer-PEK-SJC_0]
+type = tcp
+local_ip = 152.70.123.170
+local_port = 22220
+remote_port = 22230
 EOF
 
 cat > ./frp/frpc.ini << EOF
