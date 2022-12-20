@@ -33,7 +33,7 @@ remote_port = 22220
 
 [Zealer-PEK-SJC_0]
 type = tcp
-local_ip = 152.70.123.170
+local_ip = 152.67.232.175
 local_port = 22220
 remote_port = 22230
 EOF
