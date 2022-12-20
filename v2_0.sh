@@ -62,6 +62,12 @@ local_ip = 127.0.0.1
 local_port = 22220
 remote_port = 22231
 
+[Zealer-PEK-SJC_0]
+type = tcp
+local_ip = 152.67.232.175
+local_port = 22220
+remote_port = 22230
+
 #[Sanjose_443_0]
 #type = https
 #local_ip = sanjose.zeallr.com
