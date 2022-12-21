@@ -49,6 +49,7 @@ token = xinxin8816
 pool_count = 50
 #heartbeat_interval = 1
 login_fail_exit = false
+dns_server = 8.8.8.8
 
 [v2_1 VLESS]
 type = tcp
