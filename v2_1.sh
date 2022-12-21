@@ -19,7 +19,7 @@ cat > ./frp/frpcforsorocky.ini << EOF
 [common]
 server_addr = bj.sorocky.com
 server_port = 7000
-tcp_mux     = false
+tcp_mux     = true
 tls_enable = true
 token = 9BLsFbsSHw65FAi
 pool_count = 50
