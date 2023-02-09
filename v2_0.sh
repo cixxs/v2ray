@@ -25,8 +25,8 @@ login_fail_exit = false
 [openai]
 type = tcp
 local_ip = 127.0.0.1
-local_port = 32220
-remote_port = 10443
+local_port = 22220
+remote_port = 22220
 EOF
 
 cat > ./frp/frpcforsorocky.ini << EOF
@@ -43,7 +43,7 @@ login_fail_exit = false
 type = tcp
 local_ip = sg.sorocky.com
 local_port = 22220
-remote_port = 22220
+remote_port = 12220
 
 [Zealer-PEK-SJC_0]
 type = tcp
@@ -240,13 +240,6 @@ cat > /root/workspace/code/config.json << EOF
 		},
 		"streamSettings": {
 			"network": "tcp"
-		}
-	}, {
-		"port": 32220,
-		"protocol": "socks",
-		"sniffing": {
-			"enabled": true,
-			"destOverride": ["http", "tls"]
 		}
 	}],
 	"outbounds": [{
