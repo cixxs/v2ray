@@ -19,7 +19,6 @@ cat > ./frp/frpcfororacle.ini << EOF
 [common]
 server_addr = 158.101.14.67
 server_port = 7000
-tcp_mux     = false
 token = xinxin8816
 login_fail_exit = false
 
