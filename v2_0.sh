@@ -243,18 +243,13 @@ cat > /root/workspace/code/config.json << EOF
 		}
 	}, {
 		"port": 18080,
-		"protocol": "http",
+		"protocol": "socks",
 		"sniffing": {
 		"enabled": true,
 		"destOverride": [
 		  "http",
 		  "tls"
 		]
-	      },
-	      "settings": {
-		"auth": "noauth",
-		"udp": true,
-		"allowTransparent": false
 	      }
 	}],
 	"outbounds": [{
