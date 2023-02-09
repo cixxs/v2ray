@@ -25,8 +25,8 @@ login_fail_exit = false
 [openai]
 type = tcp
 local_ip = 127.0.0.1
-local_port = 18080
-remote_port = 18080
+local_port = 22220
+remote_port = 22220
 EOF
 
 cat > ./frp/frpcforsorocky.ini << EOF
