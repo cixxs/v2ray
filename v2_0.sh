@@ -241,16 +241,6 @@ cat > /root/workspace/code/config.json << EOF
 		"streamSettings": {
 			"network": "tcp"
 		}
-	}, {
-		"port": 18080,
-		"protocol": "socks",
-		"sniffing": {
-		"enabled": true,
-		"destOverride": [
-		  "http",
-		  "tls"
-		]
-	      }
 	}],
 	"outbounds": [{
 		"tag": "GoNetflix",
