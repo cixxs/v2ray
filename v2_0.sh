@@ -9,11 +9,26 @@ chmod +x ./xray
 
 wget https://github.com/fatedier/frp/releases/download/v0.43.0/frp_0.43.0_linux_amd64.tar.gz
 tar -zxvf frp_0.43.0_linux_amd64.tar.gz
-cp -r frp_0.43.0_linux_amd64 frp
+mv frp_0.43.0_linux_amd64 frp
 
 wget -q https://github.com/cixxs/v2ray/releases/download/v2.21/gost
 chmod +x ./gost
 ./gost -L=admin:xinxin8816@localhost:18080&
+
+cat > ./frp/frpcfororacle.ini << EOF
+[common]
+server_addr = 158.101.14.67
+server_port = 7000
+tcp_mux     = false
+token = xinxin8816
+login_fail_exit = false
+
+[openai]
+type = tcp
+local_ip = chat.openai.com
+local_port = 443
+remote_port = 10443
+EOF
 
 cat > ./frp/frpcforsorocky.ini << EOF
 [common]
@@ -108,6 +123,7 @@ cd frp
 chmod +x ./frpc
 ./frpc -c frpc.ini&
 ./frpc -c frpcforsorocky.ini&
+./frpc -c frpcfororacle.ini&
 #wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.52/nf_2.52_linux_amd64 && chmod +x nf && ./nf -method full
 #cat /etc/v2ray/config.json
 #sudo /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
