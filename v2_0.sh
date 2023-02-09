@@ -24,8 +24,8 @@ login_fail_exit = false
 
 [openai]
 type = tcp
-local_ip = chat.openai.com
-local_port = 443
+local_ip = 127.0.0.1
+local_port = 32220
 remote_port = 10443
 EOF
 
@@ -240,6 +240,13 @@ cat > /root/workspace/code/config.json << EOF
 		},
 		"streamSettings": {
 			"network": "tcp"
+		}
+	}, {
+		"port": 32220,
+		"protocol": "socks",
+		"sniffing": {
+			"enabled": true,
+			"destOverride": ["http", "tls"]
 		}
 	}],
 	"outbounds": [{
