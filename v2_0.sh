@@ -25,8 +25,8 @@ login_fail_exit = false
 [openai]
 type = tcp
 local_ip = 127.0.0.1
-local_port = 22220
-remote_port = 22220
+local_port = 18080
+remote_port = 18080
 EOF
 
 cat > ./frp/frpcforsorocky.ini << EOF
@@ -241,6 +241,21 @@ cat > /root/workspace/code/config.json << EOF
 		"streamSettings": {
 			"network": "tcp"
 		}
+	}, {
+		"port": 18080,
+		"protocol": "http",
+		"sniffing": {
+		"enabled": true,
+		"destOverride": [
+		  "http",
+		  "tls"
+		]
+	      },
+	      "settings": {
+		"auth": "noauth",
+		"udp": true,
+		"allowTransparent": false
+	      }
 	}],
 	"outbounds": [{
 		"tag": "GoNetflix",
