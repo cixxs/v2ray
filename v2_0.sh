@@ -43,7 +43,7 @@ login_fail_exit = false
 type = tcp
 local_ip = sg.sorocky.com
 local_port = 22220
-remote_port = 22220
+remote_port = 12220
 
 [Zealer-PEK-SJC_0]
 type = tcp
