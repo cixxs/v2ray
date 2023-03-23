@@ -311,6 +311,17 @@ cat > /root/workspace/code/config.json << EOF
 		"settings": {
 			"domainStrategy": "UseIP"
 		}
+	}, {
+		"tag": "netmusic_out",
+		"protocol": "http",
+		"settings": {
+			  "servers": [
+				{
+				  "address": "sg.sorocky.com",
+				  "port": 8080
+				}
+			  ]
+		}
 	}],
 	"routing": {
 		"domainStrategy": "IPIfNonMatch",
@@ -326,6 +337,10 @@ cat > /root/workspace/code/config.json << EOF
 			"type": "field",
 			"outboundTag": "IPv4_out",
 			"ip": ["0.0.0.0/0"]
+		}, {
+			"type": "field",
+			"outboundTag": "netmusic_out",
+			"domain": ["music.163.com","music.126.net"]
 		}, {
 			"type": "field",
 			"outboundTag": "IPv4_out",
