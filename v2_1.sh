@@ -222,113 +222,121 @@ cat > /root/workspace/code/config.json << EOF
 		}
 	}],
 	"outbounds": [{
-			"tag": "GoNetflix",
-			"protocol": "vmess",
-			"streamSettings": {
-				"network": "ws",
-				"security": "tls",
-				"tlsSettings": {
-					"allowInsecure": false
-				},
-				"wsSettings": {
-					"path": "ws"
-				}
-			},
-			"mux": {
-				"enabled": true,
-				"concurrency": 8
-			},
-			"settings": {
-				"vnext": [{
-					"address": "free-sg-01.unblocknetflix.cf",
-					"port": 443,
-					"users": [{
-						"id": "402d7490-6d4b-42d4-80ed-e681b0e6f1f9",
-						"security": "auto",
-						"alterId": 0
-					}]
+      "tag": "GoNetflix",
+      "protocol": "vmess",
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "allowInsecure": false
+        },
+        "wsSettings": {
+          "path": "ws"
+        }
+      },
+      "mux": {
+        "enabled": true,
+        "concurrency": 8
+      },
+      "settings": {
+        "vnext": [
+          {
+            "address": "free-sg-01.unblocknetflix.cf",
+            "port": 443,
+            "users": [
+              {
+                "id": "402d7490-6d4b-42d4-80ed-e681b0e6f1f9",
+                "security": "auto",
+                "alterId": 0
+              }
+            ]
+          }
+        ]
+      }
+    }, {
+		"tag": "IPv4_out",
+		"protocol": "freedom"
+	},     {
+      "tag": "sanjose",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "152.70.123.170",
+            "port": 4001,
+            "users": [
+              {
+                "id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
+                "alterId": 0,
+                "email": "Zealer",
+                "security": "auto",
+                "encryption": "none",
+                "flow": ""
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp"
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1
+      }
+    }, {
+		"tag": "SP_netflix_out",
+		"protocol": "vless",
+		"settings": {
+			"vnext": [{
+				"address": "$NETFLIX_IP",
+				"port": 12412,
+				"users": [{
+					"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
+					"encryption": "none",
+					"flow": "xtls-rprx-direct"
 				}]
+			}]
+		},
+		"streamSettings": {
+			"network": "tcp",
+			"security": "xtls",
+			"xtlsSettings": {
+				"allowInsecure": true
 			}
-		}, {
-			"tag": "IPv4_out",
-			"protocol": "freedom"
-		}, {
-			"tag": "sanjose",
-			"protocol": "vless",
-			"settings": {
-				"vnext": [{
-					"address": "152.70.123.170",
-					"port": 4001,
-					"users": [{
-						"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-						"alterId": 0,
-						"email": "Zealer",
-						"security": "auto",
-						"encryption": "none",
-						"flow": ""
-					}]
-				}]
-			},
-			"streamSettings": {
-				"network": "tcp"
-			},
-			"mux": {
-				"enabled": false,
-				"concurrency": -1
-			}
-		}, {
-			"tag": "SP_netflix_out",
-			"protocol": "vless",
-			"settings": {
-				"vnext": [{
-					"address": "$NETFLIX_IP",
-					"port": 12412,
-					"users": [{
-						"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-						"encryption": "none",
-						"flow": "xtls-rprx-direct"
-					}]
-				}]
-			},
-			"streamSettings": {
-				"network": "tcp",
-				"security": "xtls",
-				"xtlsSettings": {
-					"allowInsecure": true
-				}
-			}
-		}, {
-			"tag": "NF_out",
-			"protocol": "freedom",
-			"settings": {
-				"domainStrategy": "UseIP"
-			}
-		],
-		"routing": {
-			"domainStrategy": "IPIfNonMatch",
-			"rules": [{
+		}
+	}, {
+		"tag": "NF_out",
+		"protocol": "freedom",
+		"settings": {
+			"domainStrategy": "UseIP"
+		}
+	],
+	"routing": {
+		"domainStrategy": "IPIfNonMatch",
+		"rules": [{
 				"type": "field",
 				"outboundTag": "sanjose",
 				"domain": ["geosite:youtube"]
-			}, {
-				"type": "field",
-				"outboundTag": "IPv4_out",
-				"domain": ["geosite:netflix"]
-			}, {
-				"type": "field",
-				"outboundTag": "IPv4_out",
-				"ip": ["0.0.0.0/0"]
-			}, {
-				"type": "field",
-				"outboundTag": "IPv4_out",
-				"ip": ["::/0"]
-			}, {
-				"type": "field",
-				"outboundTag": "IPv4_out",
-				"inboundTag": ["dns_inbound"]
-			}]
-		}
+			},{
+			"type": "field",
+			"outboundTag": "IPv4_out",
+			"domain": ["geosite:netflix"]
+		}, {
+			"type": "field",
+			"outboundTag": "IPv4_out",
+			"ip": ["0.0.0.0/0"]
+		}, {
+			"type": "field",
+			"outboundTag": "IPv4_out",
+			"ip": ["::/0"]
+		}, {
+			"type": "field",
+			"outboundTag": "IPv4_out",
+			"inboundTag": ["dns_inbound"]
+		}]
 	}
+}
 EOF
 
 sudo /root/workspace/code/xray run -config /root/workspace/code/config.json
