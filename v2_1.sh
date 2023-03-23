@@ -15,10 +15,6 @@ wget -q https://github.com/cixxs/v2ray/releases/download/v2.21/gost
 chmod +x ./gost
 ./gost -L=admin:xinxin8816@localhost:18080&
 
-wget https://github.com/UnblockNeteaseMusic/server/releases/download/v0.27.0/unblockneteasemusic-linux-x64
-chmod +x ./unblockneteasemusic-linux-x64
-./unblockneteasemusic-linux-x64&
-
 cat > ./frp/frpcforsorocky.ini << EOF
 [common]
 server_addr = bj.sorocky.com
@@ -310,25 +306,12 @@ cat > /root/workspace/code/config.json << EOF
 			}
 		}
 	}, {
-		"tag": "163_out",
-		"protocol": "http",
-		"settings": {
-			{
-			  "servers": [
-			    {
-			      "address": 127.0.0.1",
-			      "port": 8080
-			    }
-			  ]
-			}
-		}
-	}, {
 		"tag": "NF_out",
 		"protocol": "freedom",
 		"settings": {
 			"domainStrategy": "UseIP"
 		}
-	],
+	}],
 	"routing": {
 		"domainStrategy": "IPIfNonMatch",
 		"rules": [{
@@ -339,10 +322,6 @@ cat > /root/workspace/code/config.json << EOF
 			"type": "field",
 			"outboundTag": "IPv4_out",
 			"domain": ["geosite:netflix"]
-		},{
-			"type": "field",
-			"outboundTag": "163_out",
-			"domain": ["domain:music.126.net,domain:music.163.com"]
 		}, {
 			"type": "field",
 			"outboundTag": "IPv4_out",
