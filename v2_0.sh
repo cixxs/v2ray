@@ -54,7 +54,8 @@ EOF
 
 cat > ./frp/frpc.ini << EOF
 [common]
-server_addr = my.qxin.info
+#server_addr = my.qxin.info
+server_addr = crazyhash.ddns.net
 server_port = 8000
 tcp_mux     = false
 tls_enable = false
