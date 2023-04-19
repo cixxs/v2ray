@@ -340,7 +340,7 @@ cat > /root/workspace/code/config.json << EOF
 			"ip": ["0.0.0.0/0"]
 		}, {
 			"type": "field",
-			"outboundTag": "netmusic_out",
+			"outboundTag": "IPv4_out",
 			"domain": ["music.163.com","music.126.net"]
 		}, {
 			"type": "field",
