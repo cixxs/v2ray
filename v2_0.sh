@@ -17,16 +17,29 @@ chmod +x ./gost
 
 cat > ./frp/frpcfororacle.ini << EOF
 [common]
-server_addr = 158.101.14.67
-server_port = 7000
+server_addr = my.qxin.info
+server_port = 8000
+tcp_mux     = false
+tls_enable = false
+protocol = tcp
 token = xinxin8816
+pool_count = 50
+#heartbeat_interval = 1
 login_fail_exit = false
+dns_server = 8.8.8.8
 
-[openai]
+[v2_0 VLESS]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22222
+remote_port = 22221
+
+[v2_0 VMESS]
 type = tcp
 local_ip = 127.0.0.1
 local_port = 22220
-remote_port = 22220
+remote_port = 22231
+
 EOF
 
 cat > ./frp/frpcforsorocky.ini << EOF
@@ -123,7 +136,7 @@ cd frp
 chmod +x ./frpc
 ./frpc -c frpc.ini&
 ./frpc -c frpcforsorocky.ini&
-#./frpc -c frpcfororacle.ini&
+./frpc -c frpcfororacle.ini&
 #wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.52/nf_2.52_linux_amd64 && chmod +x nf && ./nf -method full
 #cat /etc/v2ray/config.json
 #sudo /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
