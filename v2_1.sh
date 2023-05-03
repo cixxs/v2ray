@@ -16,6 +16,7 @@ chmod +x ./gost
 ./gost -L=admin:xinxin8816@localhost:18080&
 
 cat > ./frp/frpcfororacle.ini << EOF
+[common]
 server_addr = my.qxin.info
 server_port = 8000
 tcp_mux     = false
