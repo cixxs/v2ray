@@ -61,7 +61,7 @@ remote_port = 22220
 type = tcp
 local_ip = sorocky.com
 local_port = 22220
-remote_port = 22230
+remote_port = 22300
 EOF
 
 cat > ./frp/frpc.ini << EOF
