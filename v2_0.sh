@@ -60,8 +60,8 @@ remote_port = 22220
 [Zealer-PEK-SJC_0]
 type = tcp
 local_ip = sorocky.com
-local_port = 22220
-remote_port = 22221
+local_port = 22221
+remote_port = 22230
 EOF
 
 cat > ./frp/frpc.ini << EOF
