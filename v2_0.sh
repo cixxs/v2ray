@@ -151,7 +151,7 @@ trust_host_root_certs: true
 EOF
 
 cat > ./easydown.yml << EOF
-tunnel: sorock
+tunnel: aliflow
 credentials-file: ./1234.json
 protocol: http2
 originRequest:
