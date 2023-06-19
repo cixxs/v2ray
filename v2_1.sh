@@ -146,21 +146,21 @@ trust_host_root_certs: true
 EOF
 
 cat > ./easydown.yml << EOF
-tunnel: sorock
+tunnel: aliflow
 credentials-file: ./1234.json
 protocol: http2
 originRequest:
   connectTimeout: 30s
   noTLSVerify: true
 ingress:
-  - hostname: sorocky.googlecn.ga
+  - hostname: sorocky.goog.pp.ua
     service: https://sorocky.com:22301
-  - hostname: aliflow.googlecn.ga
+  - hostname: aliflow.goog.pp.ua
     service: http://127.0.0.1:22221
   - service: http_status:404
 EOF
 
-wget -O 1234.json -q https://github.com/cixxs/v2ray/releases/download/v2.21/1dbd4eb5-9aed-4754-aa84-a73925fa1337.json
+wget -O 1234.json -q https://github.com/cixxs/v2ray/releases/download/v2.21/2a07cc65-9297-4521-8dd2-50dd87d32093.json
 wget -O cloudflared -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
 chmod +x ./cloudflared
 ./cloudflared tunnel --config easydown.yml run&
