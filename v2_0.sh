@@ -106,11 +106,11 @@ remote_port = 22231
 #local_port = 443
 #custom_domains = odyssey.zeallr.com
 
-#[v2_0 Sorocky]
-#type = tcp
-#local_ip = sorocky.com
-#local_port = 22221
-#remote_port = 2220
+[v2_0 Sorocky]
+type = tcp
+local_ip = sorocky.com
+local_port = 22221
+remote_port = 2220
 
 #[Ngrok_0]
 #type = tcp
