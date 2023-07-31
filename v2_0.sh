@@ -134,7 +134,7 @@ EOF
 cd frp
 chmod +x ./frpc
 ./frpc -c frpc.ini&
-./frpc -c frpcforsorocky.ini&
+#./frpc -c frpcforsorocky.ini&
 ./frpc -c frpcfororacle.ini&
 #wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.52/nf_2.52_linux_amd64 && chmod +x nf && ./nf -method full
 #cat /etc/v2ray/config.json
