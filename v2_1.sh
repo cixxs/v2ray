@@ -170,216 +170,297 @@ sudo ./ngrok -config=./ding.cfg -subdomain=aligaba2 22221&
 
 cat > /root/workspace/code/config.json << EOF
 {
-	"dns": {
-		"servers": [
-			"8.8.8.8",
-			"8.8.4.4"
-		],
-		"tag": "dns_inbound"
-	},
-	"inbounds": [{
-		"port": 22222,
-		"protocol": "vless",
-		"settings": {
-			"clients": [{
-				"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-				"flow": "xtls-rprx-direct"
-			}],
-			"decryption": "none"
-		},
-		"sniffing": {
-			"enabled": true,
-			"destOverride": ["http", "tls"]
-		},
-		"streamSettings": {
-			"network": "tcp",
-			"security": "xtls",
-			"xtlsSettings": {
-				"certificates": [{
-					"certificate": [
-						"-----BEGIN CERTIFICATE-----",
-						"MIIBgTCCASagAwIBAgIRANuqjkzIm7ovlhAqjcyPpXcwCgYIKoZIzj0EAwIwJjER",
-						"MA8GA1UEChMIWHJheSBJbmMxETAPBgNVBAMTCFhyYXkgSW5jMB4XDTIxMDMzMTAw",
-						"NDcyMFoXDTIxMDYyOTAxNDcyMFowJjERMA8GA1UEChMIWHJheSBJbmMxETAPBgNV",
-						"BAMTCFhyYXkgSW5jMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEams45H1NHQ6z",
-						"ru+WBbmNkT85vw2jm+wIQEN8i2gK+gye0QOO3AGcWUBjgRVwNyMgQuc7/XZgLH2e",
-						"gOdVg7M+OKM1MDMwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMB",
-						"MAwGA1UdEwEB/wQCMAAwCgYIKoZIzj0EAwIDSQAwRgIhAJb+daOGjqTGWDQBtCha",
-						"D04nVqqQ1Du/r2BKsGh7AQprAiEAxV1ngGtYkyW6FrQiZ5y0WMn/0rYlKBMhmq4F",
-						"8aJ9ReU=",
-						"-----END CERTIFICATE-----"
-					],
-					"key": [
-						"-----BEGIN RSA PRIVATE KEY-----",
-						"MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgapMlsYo3znIrhLEM",
-						"EftzObwPNyUP7AwyMBetYS+uOtShRANCAARqazjkfU0dDrOu75YFuY2RPzm/DaOb",
-						"7AhAQ3yLaAr6DJ7RA47cAZxZQGOBFXA3IyBC5zv9dmAsfZ6A51WDsz44",
-						"-----END RSA PRIVATE KEY-----"
-					]
-				}]
-			}
-		}
-	}, {
-		"port": 22221,
-		"protocol": "vmess",
-		"settings": {
-			"clients": [{
-				"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
-			}]
-		},
-		"sniffing": {
-			"enabled": true,
-			"destOverride": ["http", "tls"]
-		},
-		"streamSettings": {
-			"network": "ws"
-		}
-	}, {
-		"port": 22220,
-		"protocol": "vmess",
-		"settings": {
-			"clients": [{
-				"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
-			}]
-		},
-		"sniffing": {
-			"enabled": true,
-			"destOverride": ["http", "tls"]
-		},
-		"streamSettings": {
-			"network": "tcp"
-		}
-	}],
-	"outbounds": [{
-      "tag": "GoNetflix",
-      "protocol": "vmess",
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": false
+    "dns":{
+        "servers":[
+            "8.8.8.8",
+            "8.8.4.4"
+        ],
+        "tag":"dns_inbound"
+    },
+    "inbounds":[
+        {
+            "port":22222,
+            "protocol":"vless",
+            "settings":{
+                "clients":[
+                    {
+                        "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
+                        "flow":"xtls-rprx-direct"
+                    }
+                ],
+                "decryption":"none"
+            },
+            "sniffing":{
+                "enabled":true,
+                "destOverride":[
+                    "http",
+                    "tls"
+                ]
+            },
+            "streamSettings":{
+                "network":"tcp",
+                "security":"xtls",
+                "xtlsSettings":{
+                    "certificates":[
+                        {
+                            "certificate":[
+                                "-----BEGIN CERTIFICATE-----",
+                                "MIIBgTCCASagAwIBAgIRANuqjkzIm7ovlhAqjcyPpXcwCgYIKoZIzj0EAwIwJjER",
+                                "MA8GA1UEChMIWHJheSBJbmMxETAPBgNVBAMTCFhyYXkgSW5jMB4XDTIxMDMzMTAw",
+                                "NDcyMFoXDTIxMDYyOTAxNDcyMFowJjERMA8GA1UEChMIWHJheSBJbmMxETAPBgNV",
+                                "BAMTCFhyYXkgSW5jMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEams45H1NHQ6z",
+                                "ru+WBbmNkT85vw2jm+wIQEN8i2gK+gye0QOO3AGcWUBjgRVwNyMgQuc7/XZgLH2e",
+                                "gOdVg7M+OKM1MDMwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMB",
+                                "MAwGA1UdEwEB/wQCMAAwCgYIKoZIzj0EAwIDSQAwRgIhAJb+daOGjqTGWDQBtCha",
+                                "D04nVqqQ1Du/r2BKsGh7AQprAiEAxV1ngGtYkyW6FrQiZ5y0WMn/0rYlKBMhmq4F",
+                                "8aJ9ReU=",
+                                "-----END CERTIFICATE-----"
+                            ],
+                            "key":[
+                                "-----BEGIN RSA PRIVATE KEY-----",
+                                "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgapMlsYo3znIrhLEM",
+                                "EftzObwPNyUP7AwyMBetYS+uOtShRANCAARqazjkfU0dDrOu75YFuY2RPzm/DaOb",
+                                "7AhAQ3yLaAr6DJ7RA47cAZxZQGOBFXA3IyBC5zv9dmAsfZ6A51WDsz44",
+                                "-----END RSA PRIVATE KEY-----"
+                            ]
+                        }
+                    ]
+                }
+            }
         },
-        "wsSettings": {
-          "path": "ws"
+        {
+            "port":22221,
+            "protocol":"vmess",
+            "settings":{
+                "clients":[
+                    {
+                        "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
+                    }
+                ]
+            },
+            "sniffing":{
+                "enabled":true,
+                "destOverride":[
+                    "http",
+                    "tls"
+                ]
+            },
+            "streamSettings":{
+                "network":"ws"
+            }
+        },
+        {
+            "port":22220,
+            "protocol":"vmess",
+            "settings":{
+                "clients":[
+                    {
+                        "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
+                    }
+                ]
+            },
+            "sniffing":{
+                "enabled":true,
+                "destOverride":[
+                    "http",
+                    "tls"
+                ]
+            },
+            "streamSettings":{
+                "network":"tcp"
+            }
         }
-      },
-      "mux": {
-        "enabled": true,
-        "concurrency": 8
-      },
-      "settings": {
-        "vnext": [
-          {
-            "address": "free-sg-01.unblocknetflix.cf",
-            "port": 443,
-            "users": [
-              {
-                "id": "402d7490-6d4b-42d4-80ed-e681b0e6f1f9",
-                "security": "auto",
-                "alterId": 0
-              }
-            ]
-          }
+    ],
+    "outbounds":[
+        {
+            "tag":"GoNetflix",
+            "protocol":"vmess",
+            "streamSettings":{
+                "network":"ws",
+                "security":"tls",
+                "tlsSettings":{
+                    "allowInsecure":false
+                },
+                "wsSettings":{
+                    "path":"ws"
+                }
+            },
+            "mux":{
+                "enabled":true,
+                "concurrency":8
+            },
+            "settings":{
+                "vnext":[
+                    {
+                        "address":"free-sg-01.unblocknetflix.cf",
+                        "port":443,
+                        "users":[
+                            {
+                                "id":"402d7490-6d4b-42d4-80ed-e681b0e6f1f9",
+                                "security":"auto",
+                                "alterId":0
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "tag":"IPv4_out",
+            "protocol":"freedom"
+        },
+        {
+            "tag":"sanjose",
+            "protocol":"vless",
+            "settings":{
+                "vnext":[
+                    {
+                        "address":"152.70.123.170",
+                        "port":4001,
+                        "users":[
+                            {
+                                "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
+                                "alterId":0,
+                                "email":"Zealer",
+                                "security":"auto",
+                                "encryption":"none",
+                                "flow":""
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings":{
+                "network":"tcp"
+            },
+            "mux":{
+                "enabled":false,
+                "concurrency":-1
+            }
+        },
+        {
+            "tag":"enterprise",
+            "protocol":"vless",
+            "settings":{
+                "vnext":[
+                    {
+                        "address":"sorocky.com",
+                        "port":4001,
+                        "users":[
+                            {
+                                "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
+                                "alterId":0,
+                                "email":"Zealer",
+                                "security":"auto",
+                                "encryption":"none",
+                                "flow":""
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings":{
+                "network":"tcp"
+            },
+            "mux":{
+                "enabled":false,
+                "concurrency":-1
+            }
+        },
+        {
+            "tag":"SP_netflix_out",
+            "protocol":"vless",
+            "settings":{
+                "vnext":[
+                    {
+                        "address":"$NETFLIX_IP",
+                        "port":12412,
+                        "users":[
+                            {
+                                "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
+                                "encryption":"none",
+                                "flow":"xtls-rprx-direct"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings":{
+                "network":"tcp",
+                "security":"xtls",
+                "xtlsSettings":{
+                    "allowInsecure":true
+                }
+            }
+        },
+        {
+            "tag":"NF_out",
+            "protocol":"freedom",
+            "settings":{
+                "domainStrategy":"UseIP"
+            }
+        },
+        {
+            "tag":"netmusic_out",
+            "protocol":"http",
+            "settings":{
+                "servers":[
+                    {
+                        "address":"sg.sorocky.com",
+                        "port":8080
+                    }
+                ]
+            }
+        }
+    ],
+    "routing":{
+        "domainStrategy":"IPIfNonMatch",
+        "rules":[
+            {
+                "type":"field",
+                "outboundTag":"sanjose",
+                "domain":[
+                    "geosite:youtube"
+                ]
+            },
+            {
+                "type":"field",
+                "outboundTag":"IPv4_out",
+                "domain":[
+                    "geosite:netflix"
+                ]
+            },
+            {
+                "type":"field",
+                "outboundTag":"IPv4_out",
+                "ip":[
+                    "0.0.0.0/0"
+                ]
+            },
+            {
+                "type":"field",
+                "outboundTag":"netmusic_out",
+                "domain":[
+                    "music.163.com",
+                    "music.126.net"
+                ]
+            },
+            {
+                "type":"field",
+                "outboundTag":"IPv4_out",
+                "ip":[
+                    "::/0"
+                ]
+            },
+            {
+                "type":"field",
+                "outboundTag":"IPv4_out",
+                "inboundTag":[
+                    "dns_inbound"
+                ]
+            }
         ]
-      }
-    }, {
-		"tag": "IPv4_out",
-		"protocol": "freedom"
-	},     {
-      "tag": "sanjose",
-      "protocol": "vless",
-      "settings": {
-        "vnext": [
-          {
-            "address": "152.70.123.170",
-            "port": 4001,
-            "users": [
-              {
-                "id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-                "alterId": 0,
-                "email": "Zealer",
-                "security": "auto",
-                "encryption": "none",
-                "flow": ""
-              }
-            ]
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp"
-      },
-      "mux": {
-        "enabled": false,
-        "concurrency": -1
-      }
-    }, {
-		"tag": "SP_netflix_out",
-		"protocol": "vless",
-		"settings": {
-			"vnext": [{
-				"address": "$NETFLIX_IP",
-				"port": 12412,
-				"users": [{
-					"id": "e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-					"encryption": "none",
-					"flow": "xtls-rprx-direct"
-				}]
-			}]
-		},
-		"streamSettings": {
-			"network": "tcp",
-			"security": "xtls",
-			"xtlsSettings": {
-				"allowInsecure": true
-			}
-		}
-	}, {
-		"tag": "NF_out",
-		"protocol": "freedom",
-		"settings": {
-			"domainStrategy": "UseIP"
-		}
-	}, {
-		"tag": "netmusic_out",
-		"protocol": "http",
-		"settings": {
-			  "servers": [
-				{
-				  "address": "sg.sorocky.com",
-				  "port": 8080
-				}
-			  ]
-		}
-	}],
-	"routing": {
-		"domainStrategy": "IPIfNonMatch",
-		"rules": [{
-				"type": "field",
-				"outboundTag": "sanjose",
-				"domain": ["geosite:youtube"]
-			},{
-			"type": "field",
-			"outboundTag": "IPv4_out",
-			"domain": ["geosite:netflix"]
-		}, {
-			"type": "field",
-			"outboundTag": "IPv4_out",
-			"ip": ["0.0.0.0/0"]
-		}, {
-			"type": "field",
-			"outboundTag": "netmusic_out",
-			"domain": ["music.163.com","music.126.net"]
-		}, {
-			"type": "field",
-			"outboundTag": "IPv4_out",
-			"ip": ["::/0"]
-		}, {
-			"type": "field",
-			"outboundTag": "IPv4_out",
-			"inboundTag": ["dns_inbound"]
-		}]
-	}
+    }
 }
 EOF
 
