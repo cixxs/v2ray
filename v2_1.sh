@@ -439,6 +439,13 @@ cat > /root/workspace/code/config.json << EOF
             },
             {
                 "type":"field",
+                "outboundTag":"enterprise",
+                "domain":[
+                    "openai.com"
+                ]
+            },
+            {
+                "type":"field",
                 "outboundTag":"netmusic_out",
                 "domain":[
                     "music.163.com",
