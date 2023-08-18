@@ -20,10 +20,10 @@ cat > ./frp/frpcfororacle.ini << EOF
 server_addr = my.qxin.info
 server_port = 8000
 tcp_mux     = false
-tls_enable = false
+tls_enable = true
 protocol = tcp
 token = xinxin8816
-pool_count = 50
+pool_count = 20
 #heartbeat_interval = 1
 login_fail_exit = false
 dns_server = 8.8.8.8
