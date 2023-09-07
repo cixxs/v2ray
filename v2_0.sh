@@ -3,7 +3,7 @@
 #chmod +x install.sh
 #bash install.sh
 NETFLIX_IP="103.159.64.93"
-wget -q https://github.com/XTLS/Xray-core/releases/download/v1.4.0/Xray-linux-64.zip
+wget -q https://github.com/XTLS/Xray-core/releases/download/v1.8.3/Xray-linux-64.zip
 unzip Xray-linux-64.zip
 chmod +x ./xray
 
