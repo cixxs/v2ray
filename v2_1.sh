@@ -88,7 +88,7 @@ remote_port = 22222
 [v2_1 VMESS]
 type = tcp
 local_ip = 127.0.0.1
-local_port = 22220
+local_port = 22221
 remote_port = 22232
 
 #[Sanjose_443_1]
