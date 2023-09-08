@@ -297,7 +297,7 @@ cat > /root/workspace/code/config.json << EOF
         },
         {
             "tag":"sanjose",
-            "protocol":"vless",
+            "protocol":"vmess",
             "settings":{
                 "vnext":[
                     {
@@ -307,10 +307,7 @@ cat > /root/workspace/code/config.json << EOF
                             {
                                 "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
                                 "alterId":0,
-                                "email":"Zealer",
-                                "security":"auto",
-                                "encryption":"none",
-                                "flow":""
+                                "email":"Zealer"
                             }
                         ]
                     }
@@ -326,7 +323,7 @@ cat > /root/workspace/code/config.json << EOF
         },
         {
             "tag":"enterprise",
-            "protocol":"vless",
+            "protocol":"vmess",
             "settings":{
                 "vnext":[
                     {
@@ -336,10 +333,7 @@ cat > /root/workspace/code/config.json << EOF
                             {
                                 "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
                                 "alterId":0,
-                                "email":"Zealer",
-                                "security":"auto",
-                                "encryption":"none",
-                                "flow":""
+                                "email":"Zealer"
                             }
                         ]
                     }
@@ -351,32 +345,6 @@ cat > /root/workspace/code/config.json << EOF
             "mux":{
                 "enabled":false,
                 "concurrency":-1
-            }
-        },
-        {
-            "tag":"SP_netflix_out",
-            "protocol":"vless",
-            "settings":{
-                "vnext":[
-                    {
-                        "address":"$NETFLIX_IP",
-                        "port":12412,
-                        "users":[
-                            {
-                                "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-                                "encryption":"none",
-                                "flow":"xtls-rprx-direct"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "streamSettings":{
-                "network":"tcp",
-                "security":"xtls",
-                "xtlsSettings":{
-                    "allowInsecure":true
-                }
             }
         },
         {
