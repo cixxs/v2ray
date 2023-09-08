@@ -296,32 +296,6 @@ cat > /root/workspace/code/config.json << EOF
             "protocol":"freedom"
         },
         {
-            "tag":"sanjose",
-            "protocol":"vmess",
-            "settings":{
-                "vnext":[
-                    {
-                        "address":"152.70.123.170",
-                        "port":4001,
-                        "users":[
-                            {
-                                "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-                                "alterId":0,
-                                "email":"Zealer"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "streamSettings":{
-                "network":"tcp"
-            },
-            "mux":{
-                "enabled":false,
-                "concurrency":-1
-            }
-        },
-        {
             "tag":"enterprise",
             "protocol":"vmess",
             "settings":{
@@ -332,8 +306,9 @@ cat > /root/workspace/code/config.json << EOF
                         "users":[
                             {
                                 "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-                                "alterId":0,
-                                "email":"Zealer"
+                                "alterId": 0,
+                                "email":"Zealer",
+                                "security": "auto"
                             }
                         ]
                     }
@@ -342,9 +317,9 @@ cat > /root/workspace/code/config.json << EOF
             "streamSettings":{
                 "network":"tcp"
             },
-            "mux":{
-                "enabled":false,
-                "concurrency":-1
+            "mux": {
+              "enabled": false,
+              "concurrency": -1
             }
         },
         {
@@ -372,7 +347,7 @@ cat > /root/workspace/code/config.json << EOF
         "rules":[
             {
                 "type":"field",
-                "outboundTag":"sanjose",
+                "outboundTag":"enterprise",
                 "domain":[
                     "geosite:youtube"
                 ]
