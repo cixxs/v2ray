@@ -185,7 +185,7 @@ cat > /root/workspace/code/config.json << EOF
                 "clients":[
                     {
                         "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-                        "flow":"xtls-rprx-direct"
+                        "flow":"xtls-rprx-vision"
                     }
                 ],
                 "decryption":"none"
@@ -199,31 +199,17 @@ cat > /root/workspace/code/config.json << EOF
             },
             "streamSettings":{
                 "network":"tcp",
-                "security":"xtls",
-                "xtlsSettings":{
-                    "certificates":[
-                        {
-                            "certificate":[
-                                "-----BEGIN CERTIFICATE-----",
-                                "MIIBgTCCASagAwIBAgIRANuqjkzIm7ovlhAqjcyPpXcwCgYIKoZIzj0EAwIwJjER",
-                                "MA8GA1UEChMIWHJheSBJbmMxETAPBgNVBAMTCFhyYXkgSW5jMB4XDTIxMDMzMTAw",
-                                "NDcyMFoXDTIxMDYyOTAxNDcyMFowJjERMA8GA1UEChMIWHJheSBJbmMxETAPBgNV",
-                                "BAMTCFhyYXkgSW5jMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEams45H1NHQ6z",
-                                "ru+WBbmNkT85vw2jm+wIQEN8i2gK+gye0QOO3AGcWUBjgRVwNyMgQuc7/XZgLH2e",
-                                "gOdVg7M+OKM1MDMwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMB",
-                                "MAwGA1UdEwEB/wQCMAAwCgYIKoZIzj0EAwIDSQAwRgIhAJb+daOGjqTGWDQBtCha",
-                                "D04nVqqQ1Du/r2BKsGh7AQprAiEAxV1ngGtYkyW6FrQiZ5y0WMn/0rYlKBMhmq4F",
-                                "8aJ9ReU=",
-                                "-----END CERTIFICATE-----"
-                            ],
-                            "key":[
-                                "-----BEGIN RSA PRIVATE KEY-----",
-                                "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgapMlsYo3znIrhLEM",
-                                "EftzObwPNyUP7AwyMBetYS+uOtShRANCAARqazjkfU0dDrOu75YFuY2RPzm/DaOb",
-                                "7AhAQ3yLaAr6DJ7RA47cAZxZQGOBFXA3IyBC5zv9dmAsfZ6A51WDsz44",
-                                "-----END RSA PRIVATE KEY-----"
-                            ]
-                        }
+                "security":"reality",
+                "realitySettings":{
+                    "show":false,
+                    "dest":"www.microsoft.com:443",
+                    "serverNames":[
+                        "www.microsoft.com"
+                    ],
+                    "privateKey":"GMpD9poxqOGY3t6zKSmTZvnNg7gf9n_BNV7B8aqbGmU",
+                    "shortIds":[
+                        "",
+                        "0123456789abcdef"
                     ]
                 }
             }
@@ -310,37 +296,8 @@ cat > /root/workspace/code/config.json << EOF
             "protocol":"freedom"
         },
         {
-            "tag":"sanjose",
-            "protocol":"vless",
-            "settings":{
-                "vnext":[
-                    {
-                        "address":"152.70.123.170",
-                        "port":4001,
-                        "users":[
-                            {
-                                "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-                                "alterId":0,
-                                "email":"Zealer",
-                                "security":"auto",
-                                "encryption":"none",
-                                "flow":""
-                            }
-                        ]
-                    }
-                ]
-            },
-            "streamSettings":{
-                "network":"tcp"
-            },
-            "mux":{
-                "enabled":false,
-                "concurrency":-1
-            }
-        },
-        {
             "tag":"enterprise",
-            "protocol":"vless",
+            "protocol":"vmess",
             "settings":{
                 "vnext":[
                     {
@@ -351,9 +308,7 @@ cat > /root/workspace/code/config.json << EOF
                                 "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
                                 "alterId":0,
                                 "email":"Zealer",
-                                "security":"auto",
-                                "encryption":"none",
-                                "flow":""
+                                "security":"auto"
                             }
                         ]
                     }
@@ -365,32 +320,6 @@ cat > /root/workspace/code/config.json << EOF
             "mux":{
                 "enabled":false,
                 "concurrency":-1
-            }
-        },
-        {
-            "tag":"SP_netflix_out",
-            "protocol":"vless",
-            "settings":{
-                "vnext":[
-                    {
-                        "address":"$NETFLIX_IP",
-                        "port":12412,
-                        "users":[
-                            {
-                                "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79",
-                                "encryption":"none",
-                                "flow":"xtls-rprx-direct"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "streamSettings":{
-                "network":"tcp",
-                "security":"xtls",
-                "xtlsSettings":{
-                    "allowInsecure":true
-                }
             }
         },
         {
@@ -418,7 +347,7 @@ cat > /root/workspace/code/config.json << EOF
         "rules":[
             {
                 "type":"field",
-                "outboundTag":"sanjose",
+                "outboundTag":"enterprise",
                 "domain":[
                     "geosite:youtube"
                 ]
