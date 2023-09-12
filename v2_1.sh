@@ -156,7 +156,7 @@ ingress:
   - hostname: sorocky.goog.pp.ua
     service: https://sorocky.com:22301
   - hostname: aliflow.goog.pp.ua
-    service: http://127.0.0.1:22221
+    service: http://127.0.0.1:22220
   - service: http_status:404
 EOF
 
@@ -280,7 +280,7 @@ cat > /root/workspace/code/config.json << EOF
                 ]
             },
             "streamSettings":{
-                "network":"tcp"
+                "network":"ws"
             }
         }
     ],
