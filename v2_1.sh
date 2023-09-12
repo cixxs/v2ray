@@ -7,9 +7,9 @@ wget https://github.com/XTLS/Xray-core/releases/download/v1.8.3/Xray-linux-64.zi
 unzip Xray-linux-64.zip
 chmod +x ./xray
 
-wget https://github.com/fatedier/frp/releases/download/v0.43.0/frp_0.43.0_linux_amd64.tar.gz
+wget -q https://github.com/fatedier/frp/releases/download/v0.43.0/frp_0.43.0_linux_amd64.tar.gz
 tar -zxvf frp_0.43.0_linux_amd64.tar.gz
-cp -r frp_0.43.0_linux_amd64 frp
+mv frp_0.43.0_linux_amd64 frp
 
 wget -q https://github.com/cixxs/v2ray/releases/download/v2.21/gost
 chmod +x ./gost
@@ -232,7 +232,34 @@ cat > /root/workspace/code/config.json << EOF
                 ]
             },
             "streamSettings":{
-                "network":"ws"
+                "network":"ws",
+                "security":"tls",
+                "tlsSettings":{
+                    "certificates":[
+                        {
+                            "certificate":[
+                                "-----BEGIN CERTIFICATE-----",
+                                "MIIBgTCCASagAwIBAgIRANuqjkzIm7ovlhAqjcyPpXcwCgYIKoZIzj0EAwIwJjER",
+                                "MA8GA1UEChMIWHJheSBJbmMxETAPBgNVBAMTCFhyYXkgSW5jMB4XDTIxMDMzMTAw",
+                                "NDcyMFoXDTIxMDYyOTAxNDcyMFowJjERMA8GA1UEChMIWHJheSBJbmMxETAPBgNV",
+                                "BAMTCFhyYXkgSW5jMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEams45H1NHQ6z",
+                                "ru+WBbmNkT85vw2jm+wIQEN8i2gK+gye0QOO3AGcWUBjgRVwNyMgQuc7/XZgLH2e",
+                                "gOdVg7M+OKM1MDMwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMB",
+                                "MAwGA1UdEwEB/wQCMAAwCgYIKoZIzj0EAwIDSQAwRgIhAJb+daOGjqTGWDQBtCha",
+                                "D04nVqqQ1Du/r2BKsGh7AQprAiEAxV1ngGtYkyW6FrQiZ5y0WMn/0rYlKBMhmq4F",
+                                "8aJ9ReU=",
+                                "-----END CERTIFICATE-----"
+                            ],
+                            "key":[
+                                "-----BEGIN RSA PRIVATE KEY-----",
+                                "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgapMlsYo3znIrhLEM",
+                                "EftzObwPNyUP7AwyMBetYS+uOtShRANCAARqazjkfU0dDrOu75YFuY2RPzm/DaOb",
+                                "7AhAQ3yLaAr6DJ7RA47cAZxZQGOBFXA3IyBC5zv9dmAsfZ6A51WDsz44",
+                                "-----END RSA PRIVATE KEY-----"
+                            ]
+                        }
+                    ]
+                }
             }
         },
         {
