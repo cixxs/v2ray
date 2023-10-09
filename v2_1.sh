@@ -15,8 +15,8 @@ wget -q https://github.com/fatedier/frp/releases/download/v0.43.0/frp_0.43.0_lin
 tar -zxvf frp_0.43.0_linux_amd64.tar.gz
 mv frp_0.43.0_linux_amd64 frp
 
-wget -q https://github.com/rapiz1/rathole/releases/download/v0.5.0/rathole-x86_64-unknown-linux-gnu.zip
-unzip rathole-x86_64-unknown-linux-gnu.zip
+wget -q https://github.com/cixxs/v2ray/releases/download/v2.21/rathole.zip
+unzip rathole.zip
 chmod +x ./rathole
 
 wget -q https://github.com/cixxs/v2ray/releases/download/v2.21/gost
