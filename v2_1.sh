@@ -151,7 +151,7 @@ chmod +x ./frpc
 #sudo /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
 
 cd ..
-./rathole client.toml&
+./rathole --client rathole.toml&
 wget https://github.com/xinxin8816/ngrok/releases/download/1/ngrok
 chmod 777 ./ngrok
 
