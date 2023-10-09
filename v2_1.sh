@@ -3,7 +3,7 @@
 #chmod +x install.sh
 #bash install.sh
 
-sudo apt-get install openssl
+sudo apt-get -y --fix-missing install openssl
 
 NETFLIX_IP="103.159.64.93"
 wget -q https://github.com/XTLS/Xray-core/releases/download/v1.8.3/Xray-linux-64.zip
