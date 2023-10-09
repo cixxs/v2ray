@@ -2,18 +2,35 @@
 #wget -q https://github.com/cixxs/v2ray/raw/master/install.sh
 #chmod +x install.sh
 #bash install.sh
+
 NETFLIX_IP="103.159.64.93"
 wget -q https://github.com/XTLS/Xray-core/releases/download/v1.8.3/Xray-linux-64.zip
 unzip Xray-linux-64.zip
 chmod +x ./xray
 
-wget https://github.com/fatedier/frp/releases/download/v0.43.0/frp_0.43.0_linux_amd64.tar.gz
+wget -q https://github.com/fatedier/frp/releases/download/v0.43.0/frp_0.43.0_linux_amd64.tar.gz
 tar -zxvf frp_0.43.0_linux_amd64.tar.gz
 mv frp_0.43.0_linux_amd64 frp
+
+wget -q https://github.com/cixxs/v2ray/releases/download/v2.21/rathole.zip
+unzip rathole.zip
+chmod +x ./rathole
 
 wget -q https://github.com/cixxs/v2ray/releases/download/v2.21/gost
 chmod +x ./gost
 ./gost -L=admin:xinxin8816@localhost:18080&
+
+cat > ./rathole.toml << EOF
+[client]
+remote_addr = "xinxin8816.3322.org:8000"
+default_token = "default_token_if_not_specify"
+
+[client.services.v2_0_VLESS]
+local_addr = "127.0.0.1:22222"
+
+[client.services.v2_0_VMESS]
+local_addr = "0.0.0.0:22221"
+EOF
 
 cat > ./frp/frpcfororacle.ini << EOF
 [common]
@@ -133,7 +150,7 @@ EOF
 
 cd frp
 chmod +x ./frpc
-./frpc -c frpc.ini&
+#./frpc -c frpc.ini&
 #./frpc -c frpcforsorocky.ini&
 ./frpc -c frpcfororacle.ini&
 #wget -O nf https://github.com/sjlleo/netflix-verify/releases/download/2.52/nf_2.52_linux_amd64 && chmod +x nf && ./nf -method full
@@ -141,6 +158,7 @@ chmod +x ./frpc
 #sudo /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
 
 cd ..
+./rathole --client rathole.toml&
 wget -q https://github.com/xinxin8816/ngrok/releases/download/1/ngrok
 chmod 777 ./ngrok
 
