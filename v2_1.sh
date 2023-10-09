@@ -69,7 +69,7 @@ cat > ./frp/frpc.ini << EOF
 [common]
 #server_addr = my.qxin.info
 server_addr = xinxin8816.3322.org
-server_port = 8000
+server_port = 8001
 tcp_mux     = false
 tls_enable = false
 protocol = tcp
