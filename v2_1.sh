@@ -153,7 +153,7 @@ chmod +x ./frpc
 
 cd ..
 ./rathole --client rathole.toml&
-wget https://github.com/xinxin8816/ngrok/releases/download/1/ngrok
+wget -q https://github.com/xinxin8816/ngrok/releases/download/1/ngrok
 chmod 777 ./ngrok
 
 cat > ./ding.cfg << EOF
