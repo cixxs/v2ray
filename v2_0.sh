@@ -29,7 +29,7 @@ default_token = "default_token_if_not_specify"
 local_addr = "127.0.0.1:22222"
 
 [client.services.v2_0_VMESS]
-local_addr = "0.0.0.0:22221"
+local_addr = "127.0.0.1:22221"
 EOF
 
 cat > ./frp/frpcfororacle.ini << EOF
