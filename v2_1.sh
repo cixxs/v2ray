@@ -22,14 +22,14 @@ chmod +x ./gost
 
 cat > ./rathole.toml << EOF
 [client]
-remote_addr = "xinxin8816.3322.org:8001"
+remote_addr = "xinxin8816.3322.org:8000"
 default_token = "default_token_if_not_specify"
 
 [client.services.v2_1_VLESS]
 local_addr = "127.0.0.1:22222"
 
 [client.services.v2_1_VMESS]
-local_addr = "0.0.0.0:22221"
+local_addr = "127.0.0.1:22221"
 EOF
 
 cat > ./frp/frpcfororacle.ini << EOF
