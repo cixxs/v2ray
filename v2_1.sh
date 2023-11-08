@@ -49,13 +49,13 @@ dns_server = 8.8.8.8
 type = tcp
 local_ip = 127.0.0.1
 local_port = 22222
-remote_port = 22222
+remote_port = 22232
 
 [v2_1 VMESS]
 type = tcp
 local_ip = 127.0.0.1
 local_port = 22221
-remote_port = 22232
+remote_port = 22222
 EOF
 
 cat > ./frp/frpcforsorocky.ini << EOF
