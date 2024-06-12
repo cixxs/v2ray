@@ -44,7 +44,7 @@ local_addr = "127.0.0.1:22222"
 local_addr = "127.0.0.1:22221"
 
 [client.services.v2_0_VMESS_notls]
-local_addr = "127.0.0.1:22220"
+local_addr = "127.0.0.1:22223"
 EOF
 
 cat > ./frp/frpcfororacle.ini << EOF
@@ -217,6 +217,27 @@ cat > /root/workspace/code/config.json << EOF
         "tag":"dns_inbound"
     },
     "inbounds":[
+{
+            "port":22223,
+            "protocol":"vmess",
+            "settings":{
+                "clients":[
+                    {
+                        "id":"e55c8d17-2cf3-b21a-bcf1-eeacb011ed79"
+                    }
+                ]
+            },
+            "sniffing":{
+                "enabled":true,
+                "destOverride":[
+                    "http",
+                    "tls"
+                ]
+            },
+            "streamSettings":{
+                "network":"tcp"
+            }
+        },
         {
             "port":22222,
             "protocol":"vless",
