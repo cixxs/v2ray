@@ -42,6 +42,9 @@ local_addr = "127.0.0.1:22222"
 
 [client.services.v2_1_VMESS]
 local_addr = "127.0.0.1:22221"
+
+[client.services.v2_1_VMESS_notls]
+local_addr = "127.0.0.1:22220"
 EOF
 
 cat > ./frp/frpcfororacle.ini << EOF
