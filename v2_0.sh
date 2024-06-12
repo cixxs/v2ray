@@ -32,6 +32,18 @@ local_addr = "127.0.0.1:22222"
 local_addr = "127.0.0.1:22221"
 EOF
 
+cat > ./rathole_VPS.toml << EOF
+[client]
+remote_addr = "host.zeallr.com:8000"
+default_token = "default_token_if_not_specify"
+
+[client.services.v2_0_VLESS]
+local_addr = "127.0.0.1:22222"
+
+[client.services.v2_0_VMESS]
+local_addr = "127.0.0.1:22221"
+EOF
+
 cat > ./frp/frpcfororacle.ini << EOF
 [common]
 server_addr = my.qxin.info
@@ -159,6 +171,7 @@ chmod +x ./frpc
 
 cd ..
 ./rathole --client rathole.toml&
+./rathole --client rathole_VPS.toml&
 wget -q https://github.com/xinxin8816/ngrok/releases/download/1/ngrok
 chmod 777 ./ngrok
 
