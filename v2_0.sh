@@ -30,6 +30,9 @@ local_addr = "127.0.0.1:22222"
 
 [client.services.v2_0_VMESS]
 local_addr = "127.0.0.1:22221"
+
+[client.services.v2_0_VMESS_notls]
+local_addr = "127.0.0.1:22220"
 EOF
 
 cat > ./rathole_VPS.toml << EOF
