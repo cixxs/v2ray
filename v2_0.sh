@@ -434,7 +434,7 @@ cat > /root/workspace/code/config.json << EOF
         "rules":[
             {
                 "type":"field",
-                "outboundTag":"enterprise",
+                "outboundTag":"IPv4_out",
                 "domain":[
                     "geosite:youtube"
                 ]
