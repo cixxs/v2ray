@@ -222,7 +222,7 @@ cat > /root/workspace/code/config.json << EOF
                 ]
             },
             "sniffing":{
-                "enabled":true,
+                "enabled":false,
                 "destOverride":[
                     "http",
                     "tls"
@@ -245,7 +245,7 @@ cat > /root/workspace/code/config.json << EOF
                 "decryption":"none"
             },
             "sniffing":{
-                "enabled":true,
+                "enabled":false,
                 "destOverride":[
                     "http",
                     "tls"
@@ -279,7 +279,7 @@ cat > /root/workspace/code/config.json << EOF
                 ]
             },
             "sniffing":{
-                "enabled":true,
+                "enabled":false,
                 "destOverride":[
                     "http",
                     "tls"
@@ -327,7 +327,7 @@ cat > /root/workspace/code/config.json << EOF
                 ]
             },
             "sniffing":{
-                "enabled":true,
+                "enabled":false,
                 "destOverride":[
                     "http",
                     "tls"
