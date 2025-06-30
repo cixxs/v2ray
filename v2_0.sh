@@ -388,7 +388,7 @@ cat > /root/workspace/code/config.json << EOF
             "settings":{
                 "vnext":[
                     {
-                        "address":"sorocky.com",
+                        "address":"192.9.129.170",
                         "port":4001,
                         "users":[
                             {
