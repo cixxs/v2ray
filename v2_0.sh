@@ -1,4 +1,5 @@
 #!/bin/bash
+pwd
 #wget -q https://github.com/cixxs/v2ray/raw/master/install.sh
 #chmod +x install.sh
 #bash install.sh
