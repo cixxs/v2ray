@@ -8,9 +8,9 @@ wget -q https://github.com/XTLS/Xray-core/releases/download/v1.8.3/Xray-linux-64
 unzip Xray-linux-64.zip
 chmod +x ./xray
 
-wget -q https://github.com/fatedier/frp/releases/download/v0.43.0/frp_0.43.0_linux_amd64.tar.gz
-tar -zxvf frp_0.43.0_linux_amd64.tar.gz
-mv frp_0.43.0_linux_amd64 frp
+#wget -q https://github.com/fatedier/frp/releases/download/v0.43.0/frp_0.43.0_linux_amd64.tar.gz
+#tar -zxvf frp_0.43.0_linux_amd64.tar.gz
+#mv frp_0.43.0_linux_amd64 frp
 
 wget -q https://github.com/cixxs/v2ray/releases/download/v2.21/rathole.zip
 unzip rathole.zip
