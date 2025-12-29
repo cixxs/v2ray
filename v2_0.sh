@@ -207,7 +207,7 @@ chmod +x ./cloudflared
 sudo ./ngrok -config=./ding.cfg -subdomain=aligaba 22221&
 #sudo ./ngrok -config=./ding.cfg -subdomain=emby 129.146.81.146:8096&
 
-cat > /root/workspace/code/config.json << EOF
+cat > ./config.json << EOF
 {
     "dns":{
         "servers":[
@@ -487,4 +487,4 @@ cat > /root/workspace/code/config.json << EOF
 }
 EOF
 
-sudo /root/workspace/code/xray run -config /root/workspace/code/config.json
+sudo ./xray run -config ./config.json
