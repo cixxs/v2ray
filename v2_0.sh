@@ -34,7 +34,7 @@ EOF
 
 cat > ./rathole_VPS.toml << EOF
 [client]
-remote_addr = "host.zeallr.com:8000"
+remote_addr = "host.zealrr.com:8000"
 default_token = "default_token_if_not_specify"
 
 [client.services.v2_0_VLESS]
