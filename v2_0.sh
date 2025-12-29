@@ -163,8 +163,8 @@ remote_port = 22231
 #remote_port = 30002
 EOF
 
-cd frp
-chmod +x ./frpc
+#cd frp
+#chmod +x ./frpc
 #./frpc -c frpc.ini&
 #./frpc -c frpcforsorocky.ini&
 #./frpc -c frpcfororacle.ini&
@@ -172,7 +172,7 @@ chmod +x ./frpc
 #cat /etc/v2ray/config.json
 #sudo /usr/bin/v2ray/v2ray -config /etc/v2ray/config.json
 
-cd ..
+#cd ..
 ./rathole --client rathole.toml&
 ./rathole --client rathole_VPS.toml&
 wget -q https://github.com/xinxin8816/ngrok/releases/download/1/ngrok
